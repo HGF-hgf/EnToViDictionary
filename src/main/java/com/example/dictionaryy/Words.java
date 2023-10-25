@@ -1,8 +1,5 @@
 package com.example.dictionaryy;
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableValue;
-
 public class Words {
     private String word;
     private String meaning;

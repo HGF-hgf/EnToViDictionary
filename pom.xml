@@ -61,30 +61,6 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/androidx.annotation/annotation -->
-        <!-- https://mvnrepository.com/artifact/androidx.annotation/annotation-jvm -->
-        <dependency>
-            <groupId>com.google.android</groupId>
-            <artifactId>android</artifactId>
-            <version>4.1.1.4</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/com.github.kirich1409/strict-mode-compat -->
-        <dependency>
-            <groupId>com.github.kirich1409</groupId>
-            <artifactId>strict-mode-compat</artifactId>
-            <version>30.2.0</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/com.github.kirich1409/strict-mode-compat -->
-        <dependency>
-            <groupId>io.github.juanimoli.strictmode.notifier</groupId>
-            <artifactId>notifier</artifactId>
-            <version>2.1.0</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
     </dependencies>
     <build>
         <plugins>
@@ -116,12 +92,6 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-                <groupId>com.simpligility.maven.plugins</groupId>
-                <artifactId>android-maven-plugin</artifactId>
-                <version>4.5.0</version>
-                <extensions>true</extensions>
             </plugin>
         </plugins>
     </build>
