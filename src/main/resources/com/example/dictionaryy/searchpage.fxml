@@ -33,7 +33,7 @@
                     <TextField fx:id="filterField" layoutX="-28.0" prefHeight="26.0" prefWidth="260.0" promptText="Search word" style="-fx-border-color: #000000; -fx-background-radius: 20px; -fx-border-radius: 20px;" />
                 </Pane>
             </Pane>
-         <ListView fx:id="listView" layoutX="83.0" layoutY="78.0" prefHeight="170.0" prefWidth="244.0" />
+         <ListView fx:id="listView" layoutX="83.0" layoutY="78.0" prefHeight="24.0" prefWidth="244.0" />
         </Pane>
       <TextArea fx:id="words" layoutX="582.0" layoutY="95.0" prefHeight="308.0" prefWidth="423.0" />
     </Pane>

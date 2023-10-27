@@ -24,3 +24,22 @@ package com.example.dictionaryy;
 //    }
 //}
 
+ //   preparedStatement.setString(1, "hi");
+//            preparedStatement.setString(2, "yui");
+//            preparedStatement.executeUpdate();
+//
+//            preparedStatement.setString(1, "bye");
+//            preparedStatement.setString(2, "cac");
+//            preparedStatement.executeUpdate();
+//
+//            preparedStatement.setString(1, "chao");
+//            preparedStatement.setString(2, "leo1");
+//            preparedStatement.executeUpdate();
+//
+//            preparedStatement.setString(1, "good");
+//            preparedStatement.setString(2, "leo2");
+//            preparedStatement.executeUpdate();
+//
+//            preparedStatement.setString(1, "sub");
+//            preparedStatement.setString(2, "leo3");
+//            preparedStatement.executeUpdate();

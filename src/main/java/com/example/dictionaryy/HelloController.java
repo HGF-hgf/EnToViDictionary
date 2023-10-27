@@ -2,6 +2,7 @@ package com.example.dictionaryy;
 
 
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
@@ -11,6 +12,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.StackPane;
+import javafx.scene.web.WebView;
+import javafx.scene.web.WebEngine;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -19,9 +23,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
-import java.util.Comparator;
-import java.util.Objects;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -33,6 +35,8 @@ public class HelloController implements Initializable {
     private ListView<String> listView = new ListView<>();
     @FXML
     private TextArea words = new TextArea();
+    @FXML
+    private WebView webView = new WebView();
 
     private Stage stage;
     private Scene scene;
@@ -78,12 +82,15 @@ public class HelloController implements Initializable {
 
             statement.executeUpdate("drop table if exists person");
             statement.executeUpdate("create table person (word string, meaning string)");
-            statement.executeUpdate("insert into person values('hello', 'leo')");
-            statement.executeUpdate("insert into person values('hi', 'yui')");
-            statement.executeUpdate("insert into person values('bye', 'cac')");
-            statement.executeUpdate("insert into person values('chao', 'leo1')");
-            statement.executeUpdate("insert into person values('good', 'leo2')");
-            statement.executeUpdate("insert into person values('sub', 'leo3')");
+
+// Use prepared statement to insert data into the person table
+            String insertQuery = "insert into person (word, meaning) values (?, ?)";
+            PreparedStatement preparedStatement = connection.prepareStatement(insertQuery);
+            preparedStatement.setString(1, "hello");
+            preparedStatement.setString(2, "<h1>accessary</h1><h3><i>/æk'sesəri/</i></h3><h2>danh từ,  (thường) số nhiều</h2><ul><li>đồ phụ tùng; vật phụ thuộc; đồ thêm vào</li><li>(pháp lý) kẻ tòng phạm, kẻ a tòng, kẻ đồng loã</li></ul><h2>tính từ</h2><ul><li>phụ, phụ vào, thêm vào</li><li>(pháp lý) a tòng, đồng loã</li></ul>");
+            preparedStatement.executeUpdate();
+
+//
 
             ResultSet resultSet = statement.executeQuery("select * from person");
             while (resultSet.next()) {
@@ -96,43 +103,61 @@ public class HelloController implements Initializable {
             listView.setVisible(false);
 
             FilteredList<String> filteredData = new FilteredList<>(dataList, b -> true);
-
+            SortedList<String> historyList = new SortedList<>(filteredData, Comparator.naturalOrder());
             filterField.setOnKeyTyped(keyEvent -> {
                 filteredData.setPredicate(words -> {
                     if (filterField.getText() == null || filterField.getText().isEmpty()) {
                         return true;
                     }
                     String lowerCaseFilter = filterField.getText().toLowerCase();
-                    if (words.toLowerCase().contains(lowerCaseFilter) && !filterField.getText().isEmpty()){
+                    if (words.toLowerCase().contains(lowerCaseFilter) && !filterField.getText().isEmpty()) {
                         listView.setVisible(true);
                     }
-//                    else {
-//                        listView.setVisible(false);
-//                    }
 
                     return words.toLowerCase().contains(lowerCaseFilter);
                 });
 
-                if(filterField.getText().isEmpty() || filterField.getText() == null) {
+                if (filterField.getText().isEmpty() || filterField.getText() == null) {
                     listView.setVisible(false);
                 }
 
-
+//                String currentText = filterField.getText();
+//                if (!historyList.contains(currentText)) {
+//                    historyList.add(currentText);
+//                }
 
             });
 
             SortedList<String> sortedData = new SortedList<>(filteredData, Comparator.naturalOrder());
-            listView.setItems(sortedData);
-
-            filterField.setOnMouseClicked(mouseEvent -> {
-                listView.setItems(sortedData);
-
-                listView.setVisible(true);
+            listView.setPrefHeight(24 * sortedData.size());
+            sortedData.addListener((ListChangeListener<String>) c -> {
+                if (sortedData.isEmpty()) {
+                    listView.setVisible(false);
+                } else {
+                    listView.setPrefHeight(24 * sortedData.size());
+                }
             });
+            listView.setItems(sortedData);
+//            filterField.setOnMouseClicked(mouseEvent -> {
+//                if (filterField.getText() == null || filterField.getText().isEmpty()) {
+//                    if (!historyList.isEmpty()) {
+//                        listView.setItems(historyList);
+//                    } else {
+//                        listView.setItems(sortedData);
+//                    }
+//                }
+//            });
+            WebEngine webEngine = webView.getEngine();
+            webView.setVisible(false);
+            StackPane root = new StackPane();
+            root.getChildren().add(webView);
+
             listView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
                 meaningList.forEach(word -> {
                     if (word.getWord().equals(t1)) {
-                        words.setText(word.getMeaning());
+                        webEngine.loadContent(word.getMeaning());
+                        webView.setVisible(true);
+                     //   words.getContentBias(null);
                         words.setEditable(false);
                     }
                 });

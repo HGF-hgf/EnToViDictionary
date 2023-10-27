@@ -8,73 +8,47 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="787.0"
-            prefWidth="1209.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px;"
-            xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.dictionaryy.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="787.0" prefWidth="1209.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionaryy.HelloController">
    <Pane prefHeight="787.0" prefWidth="244.0" style="-fx-background-color: #6841A8;">
       <VBox layoutX="1.0" layoutY="178.0" prefHeight="414.0" prefWidth="151.0" spacing="50.0">
          <HBox prefHeight="40.0" prefWidth="151.0">
-            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="163.0"
-                    style="-fx-background-color: #6841A8;" styleClass="selected-border"
-                    stylesheets="@buttonStyle.css" text="Home" textFill="WHITE"/>
+            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="163.0" style="-fx-background-color: #6841A8;" styleClass="selected-border" stylesheets="@buttonStyle.css" text="Home" textFill="WHITE" />
          </HBox>
          <HBox layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="151.0">
-            <Button mnemonicParsing="false" onAction="#switchToScene2" prefHeight="40.0" prefWidth="163.0"
-                    style="-fx-background-color: #6841A8;" text="Search" textFill="WHITE"/>
+            <Button mnemonicParsing="false" onAction="#switchToScene2" prefHeight="40.0" prefWidth="163.0" style="-fx-background-color: #6841A8;" text="Search" textFill="WHITE" />
          </HBox>
          <HBox layoutX="10.0" layoutY="70.0" prefHeight="40.0" prefWidth="151.0">
-            <Button mnemonicParsing="false" onAction="#switchToScene3" prefHeight="46.0" prefWidth="164.0"
-                    style="-fx-background-color: #6841A8;" text="Game" textFill="WHITE"/>
+            <Button mnemonicParsing="false" onAction="#switchToScene3" prefHeight="46.0" prefWidth="164.0" style="-fx-background-color: #6841A8;" text="Game" textFill="WHITE" />
          </HBox>
          <HBox layoutX="10.0" layoutY="70.0" prefHeight="40.0" prefWidth="151.0">
-            <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="164.0"
-                    style="-fx-background-color: #6841A8;" text="History" textFill="WHITE"/>
+            <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="164.0" style="-fx-background-color: #6841A8;" text="History" textFill="WHITE" />
          </HBox>
       </VBox>
    </Pane>
-   <Pane layoutX="155.0" prefHeight="787.0" prefWidth="1098.0"
-         style="-fx-background-color: #4D0A67; -fx-background-radius: 20px; -fx-border-radius: 20px;">
-      <Pane layoutX="46.0" layoutY="54.0" prefHeight="701.0" prefWidth="289.0"
-            style="-fx-background-color: #FFFFFF; -fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: #000000;">
-         <Pane layoutX="-4.0" prefHeight="36.0" prefWidth="298.0"
-               style="-fx-background-color: #6841A8; -fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: #000000;">
-            <Circle fill="WHITE" layoutX="20.0" layoutY="18.0" radius="13.0" stroke="BLACK"
-                    strokeType="INSIDE"/>
-            <Pane layoutX="38.0" layoutY="5.0" prefHeight="26.0" prefWidth="244.0"
-                  style="-fx-background-color: #FFFFFF; -fx-background-radius: 20px; -fx-border-radius: 20px; -fx-border-color: #000000;">
-               <TextField layoutX="1.0" prefHeight="26.0" prefWidth="244.0" promptText="Search word"
-                          style="-fx-border-color: #000000; -fx-background-radius: 20px; -fx-border-radius: 20px;"/>
+   <Pane layoutX="155.0" prefHeight="787.0" prefWidth="1098.0" style="-fx-background-color: #4D0A67; -fx-background-radius: 20px; -fx-border-radius: 20px;">
+      <Pane layoutX="46.0" layoutY="54.0" prefHeight="701.0" prefWidth="289.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: #000000;">
+         <Pane layoutX="-4.0" prefHeight="36.0" prefWidth="298.0" style="-fx-background-color: #6841A8; -fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: #000000;">
+            <Circle fill="WHITE" layoutX="20.0" layoutY="18.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
+            <Pane layoutX="38.0" layoutY="5.0" prefHeight="26.0" prefWidth="244.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20px; -fx-border-radius: 20px; -fx-border-color: #000000;">
+               <TextField layoutX="1.0" prefHeight="26.0" prefWidth="244.0" promptText="Search word" style="-fx-border-color: #000000; -fx-background-radius: 20px; -fx-border-radius: 20px;" />
             </Pane>
          </Pane>
-         <Button layoutX="151.0" layoutY="657.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="114.0"
-                 style="-fx-background-color: #FFFFFF;" text="More details..." textAlignment="JUSTIFY"/>
+         <Button layoutX="151.0" layoutY="657.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="114.0" style="-fx-background-color: #FFFFFF;" text="More details..." textAlignment="JUSTIFY" />
       </Pane>
-      <Pane layoutX="477.0" layoutY="51.0" prefHeight="296.0" prefWidth="483.0"
-            style="-fx-background-color: #FFFFFF; -fx-background-radius: 10px; -fx-border-radius: 10px;">
-         <TextField layoutX="7.0" layoutY="8.0" prefHeight="26.0" prefWidth="127.0"
-                    style="-fx-border-color: #FFFFFF;"/>
-         <Pane layoutX="-18.0" layoutY="-4.0" prefHeight="36.0" prefWidth="520.0"
-               style="-fx-background-color: #6841A8; -fx-background-radius: 15px; -fx-border-radius: 15px; -fx-border-color: #000000;">
-            <Circle fill="WHITE" layoutX="21.0" layoutY="18.0" radius="15.0" stroke="BLACK"
-                    strokeType="INSIDE"/>
-            <TextField layoutX="43.0" layoutY="3.0" prefHeight="30.0" prefWidth="137.0"
-                       style="-fx-background-color: #6841A8; -fx-border-color: #6841A8;" text="Quick quizz"/>
+      <Pane layoutX="477.0" layoutY="51.0" prefHeight="296.0" prefWidth="483.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10px; -fx-border-radius: 10px;">
+         <TextField layoutX="7.0" layoutY="8.0" prefHeight="26.0" prefWidth="127.0" style="-fx-border-color: #FFFFFF;" />
+         <Pane layoutX="-18.0" layoutY="-4.0" prefHeight="36.0" prefWidth="520.0" style="-fx-background-color: #6841A8; -fx-background-radius: 15px; -fx-border-radius: 15px; -fx-border-color: #000000;">
+            <Circle fill="WHITE" layoutX="21.0" layoutY="18.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
+            <TextField layoutX="43.0" layoutY="3.0" prefHeight="30.0" prefWidth="137.0" style="-fx-background-color: #6841A8; -fx-border-color: #6841A8;" text="Quick quizz" />
          </Pane>
       </Pane>
-      <Pane layoutX="483.0" layoutY="404.0" prefHeight="348.0" prefWidth="483.0"
-            style="-fx-background-color: #FFFFFF; -fx-background-radius: 10px; -fx-border-radius: 10px;">
-         <Pane layoutX="-15.0" prefHeight="359.0" prefWidth="36.0"
-               style="-fx-background-color: #6841A8; -fx-background-radius: 15px; -fx-border-radius: 15px; -fx-border-color: #000000;"/>
-         <Pane layoutX="-14.0" prefHeight="36.0" prefWidth="511.0"
-               style="-fx-background-color: #6841A8; -fx-background-radius: 15px; -fx-border-radius: 15px; -fx-border-color: #000000;">
-            <TextField layoutX="43.0" layoutY="3.0" prefHeight="30.0" prefWidth="137.0"
-                       style="-fx-background-color: #6841A8; -fx-border-color: #6841A8;" text="Quick quizz"/>
-            <Circle fill="WHITE" layoutX="21.0" layoutY="18.0" radius="15.0" stroke="BLACK"
-                    strokeType="INSIDE"/>
+      <Pane layoutX="483.0" layoutY="404.0" prefHeight="348.0" prefWidth="483.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10px; -fx-border-radius: 10px;">
+         <Pane layoutX="-15.0" prefHeight="359.0" prefWidth="36.0" style="-fx-background-color: #6841A8; -fx-background-radius: 15px; -fx-border-radius: 15px; -fx-border-color: #000000;" />
+         <Pane layoutX="-14.0" prefHeight="36.0" prefWidth="511.0" style="-fx-background-color: #6841A8; -fx-background-radius: 15px; -fx-border-radius: 15px; -fx-border-color: #000000;">
+            <TextField layoutX="43.0" layoutY="3.0" prefHeight="30.0" prefWidth="137.0" style="-fx-background-color: #6841A8; -fx-border-color: #6841A8;" text="Quick quizz" />
+            <Circle fill="WHITE" layoutX="21.0" layoutY="18.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
          </Pane>
-         <Button layoutX="355.0" layoutY="304.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="114.0"
-                 style="-fx-background-color: #FFFFFF;" text="More quizz" textAlignment="JUSTIFY"/>
+         <Button layoutX="355.0" layoutY="304.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="114.0" style="-fx-background-color: #FFFFFF;" text="More quizz" textAlignment="JUSTIFY" />
       </Pane>
    </Pane>
 </AnchorPane>
