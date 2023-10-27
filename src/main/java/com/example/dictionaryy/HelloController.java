@@ -78,12 +78,12 @@ public class HelloController implements Initializable {
 
             statement.executeUpdate("drop table if exists person");
             statement.executeUpdate("create table person (word string, meaning string)");
-            statement.executeUpdate("insert into person values(1, 'leo')");
-            statement.executeUpdate("insert into person values(2, 'yui')");
-            statement.executeUpdate("insert into person values(3, 'cac')");
-            statement.executeUpdate("insert into person values(41, 'leo1')");
-            statement.executeUpdate("insert into person values(31, 'leo2')");
-            statement.executeUpdate("insert into person values(21, 'leo3')");
+            statement.executeUpdate("insert into person values('hello', 'leo')");
+            statement.executeUpdate("insert into person values('hi', 'yui')");
+            statement.executeUpdate("insert into person values('bye', 'cac')");
+            statement.executeUpdate("insert into person values('chao', 'leo1')");
+            statement.executeUpdate("insert into person values('good', 'leo2')");
+            statement.executeUpdate("insert into person values('sub', 'leo3')");
 
             ResultSet resultSet = statement.executeQuery("select * from person");
             while (resultSet.next()) {
@@ -96,27 +96,55 @@ public class HelloController implements Initializable {
             listView.setVisible(false);
 
             FilteredList<String> filteredData = new FilteredList<>(dataList, b -> true);
+
             filterField.setOnKeyTyped(keyEvent -> {
                 filteredData.setPredicate(words -> {
                     if (filterField.getText() == null || filterField.getText().isEmpty()) {
                         return true;
                     }
                     String lowerCaseFilter = filterField.getText().toLowerCase();
+                    if (words.toLowerCase().contains(lowerCaseFilter) && !filterField.getText().isEmpty()){
+                        listView.setVisible(true);
+                    }
+//                    else {
+//                        listView.setVisible(false);
+//                    }
+
                     return words.toLowerCase().contains(lowerCaseFilter);
                 });
-                listView.setVisible(!filterField.getText().isEmpty());
+
+                if(filterField.getText().isEmpty() || filterField.getText() == null) {
+                    listView.setVisible(false);
+                }
+
+
+
             });
+
             SortedList<String> sortedData = new SortedList<>(filteredData, Comparator.naturalOrder());
             listView.setItems(sortedData);
+
+            filterField.setOnMouseClicked(mouseEvent -> {
+                listView.setItems(sortedData);
+
+                listView.setVisible(true);
+            });
             listView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
                 meaningList.forEach(word -> {
                     if (word.getWord().equals(t1)) {
                         words.setText(word.getMeaning());
+                        words.setEditable(false);
                     }
                 });
                 filterField.setText(t1);
                 listView.setVisible(false);
+                if (filterField.getText() == null || filterField.getText().isEmpty()) {
+                    filterField.clear();
+                    words.setEditable(false);
+                    words.clear();
+                }
             });
+
 
         } catch (SQLException e) {
             Logger.getLogger(HelloController.class.getName()).log(Level.SEVERE, null, e);
