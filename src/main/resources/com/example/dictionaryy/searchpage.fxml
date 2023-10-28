@@ -35,10 +35,10 @@
             </Pane>
          <ListView fx:id="listView" layoutX="83.0" layoutY="78.0" prefHeight="24.0" prefWidth="244.0" />
         </Pane>
-      <Pane layoutX="522.0" layoutY="53.0" prefHeight="481.0" prefWidth="488.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: #000000;">
+      <Pane layoutX="506.0" layoutY="53.0" prefHeight="590.0" prefWidth="504.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: #000000;">
          <children>
-            <WebView fx:id="webView" layoutX="21.0" layoutY="52.0" prefHeight="420.0" prefWidth="446.0" />
-            <Pane layoutX="-17.0" prefHeight="36.0" prefWidth="517.0" style="-fx-background-color: #6841A8; -fx-background-radius: 20px; -fx-border-radius: 20px; -fx-border-color: #000000;" />
+            <WebView fx:id="webView" layoutX="4.0" layoutY="56.0" prefHeight="524.0" prefWidth="497.0" />
+            <Pane layoutX="-15.0" layoutY="-4.0" prefHeight="36.0" prefWidth="538.0" style="-fx-background-color: #6841A8; -fx-background-radius: 20px; -fx-border-radius: 20px; -fx-border-color: #000000;" />
          </children>
       </Pane>
     </Pane>
