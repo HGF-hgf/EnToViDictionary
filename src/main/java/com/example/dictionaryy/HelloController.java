@@ -12,18 +12,18 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.StackPane;
-import javafx.scene.web.WebView;
-import javafx.scene.web.WebEngine;
 import javafx.scene.control.ListView;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
-import java.util.*;
+import java.util.Comparator;
+import java.util.Objects;
+import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -33,8 +33,8 @@ public class HelloController implements Initializable {
     private TextField filterField = new TextField();
     @FXML
     private ListView<String> listView = new ListView<>();
-    @FXML
-    private TextArea words = new TextArea();
+    //    @FXML
+//    private TextArea words = new TextArea();
     @FXML
     private WebView webView = new WebView();
 
@@ -103,7 +103,6 @@ public class HelloController implements Initializable {
             listView.setVisible(false);
 
             FilteredList<String> filteredData = new FilteredList<>(dataList, b -> true);
-            SortedList<String> historyList = new SortedList<>(filteredData, Comparator.naturalOrder());
             filterField.setOnKeyTyped(keyEvent -> {
                 filteredData.setPredicate(words -> {
                     if (filterField.getText() == null || filterField.getText().isEmpty()) {
@@ -138,35 +137,57 @@ public class HelloController implements Initializable {
                 }
             });
             listView.setItems(sortedData);
-//            filterField.setOnMouseClicked(mouseEvent -> {
-//                if (filterField.getText() == null || filterField.getText().isEmpty()) {
-//                    if (!historyList.isEmpty()) {
-//                        listView.setItems(historyList);
-//                    } else {
-//                        listView.setItems(sortedData);
-//                    }
-//                }
-//            });
-            WebEngine webEngine = webView.getEngine();
-            webView.setVisible(false);
-            StackPane root = new StackPane();
-            root.getChildren().add(webView);
+            filterField.setOnMouseClicked(mouseEvent -> {
+                if (filterField.getText() == null || filterField.getText().isEmpty()) {
+                    if (filterField.getText() == null || filterField.getText().isEmpty()) {
+                        filterField.clear();
+                        webView.getEngine().loadContent("");
+                        //words.setEditable(false);
+                        // words.clear();
+                    }
+                }
+            });
+
+            filterField.setOnKeyPressed(keyEvent -> {
+                if (keyEvent.getCode() == KeyCode.DOWN) {
+                    listView.setVisible(false);
+                    meaningList.forEach(word -> {
+                        if (word.getWord().equals(filterField.getText())) {
+                            webView.getEngine().loadContent(word.getMeaning());
+                            webView.setVisible(true);
+
+                        } else {
+                            webView.getEngine().loadContent("No word found");
+                            webView.setVisible(true);
+                        }
+                    });
+                    listView.setVisible(false);
+                } else  if (filterField.getText() == null || filterField.getText().isEmpty()) {
+                    filterField.clear();
+                    webView.getEngine().loadContent("");
+                    //words.setEditable(false);
+                    // words.clear();
+                }
+            });
+
+
 
             listView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
                 meaningList.forEach(word -> {
                     if (word.getWord().equals(t1)) {
-                        webEngine.loadContent(word.getMeaning());
+                        webView.getEngine().loadContent(word.getMeaning());
                         webView.setVisible(true);
-                     //   words.getContentBias(null);
-                        words.setEditable(false);
+                        //   words.getContentBias(null);
+                        //  words.setEditable(false);
                     }
                 });
                 filterField.setText(t1);
                 listView.setVisible(false);
                 if (filterField.getText() == null || filterField.getText().isEmpty()) {
                     filterField.clear();
-                    words.setEditable(false);
-                    words.clear();
+                    webView.getEngine().loadContent("");
+                    //words.setEditable(false);
+                    // words.clear();
                 }
             });
 
