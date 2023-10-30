@@ -33,8 +33,6 @@ public class HelloController implements Initializable {
     private TextField filterField = new TextField();
     @FXML
     private ListView<String> listView = new ListView<>();
-    //    @FXML
-//    private TextArea words = new TextArea();
     @FXML
     private WebView webView = new WebView();
 
@@ -91,9 +89,8 @@ public class HelloController implements Initializable {
             preparedStatement.executeUpdate();
 
 
-
-           // ResultSet resultSet = statement.executeQuery("select * from av");
-            ResultSet resultSet = statement.executeQuery("select * from person");
+            ResultSet resultSet = statement.executeQuery("select * from av");
+            // ResultSet resultSet = statement.executeQuery("select * from person");
             while (resultSet.next()) {
                 // read the result set
                 String word = resultSet.getString("word");
@@ -121,12 +118,6 @@ public class HelloController implements Initializable {
                 if (filterField.getText().isEmpty() || filterField.getText() == null) {
                     listView.setVisible(false);
                 }
-
-//                String currentText = filterField.getText();
-//                if (!historyList.contains(currentText)) {
-//                    historyList.add(currentText);
-//                }
-
             });
 
             SortedList<String> sortedData = new SortedList<>(filteredData, Comparator.naturalOrder());
@@ -137,7 +128,7 @@ public class HelloController implements Initializable {
                 } else {
                     listView.setPrefHeight(24 * sortedData.size());
                 }
-                if (listView.getHeight() >= 200){
+                if (listView.getHeight() >= 200) {
                     listView.setPrefHeight(200);
                 }
             });
@@ -147,8 +138,6 @@ public class HelloController implements Initializable {
                     if (filterField.getText() == null || filterField.getText().isEmpty()) {
                         filterField.clear();
                         webView.getEngine().loadContent("");
-                        //words.setEditable(false);
-                        // words.clear();
                     }
                 }
             });
@@ -167,14 +156,11 @@ public class HelloController implements Initializable {
                         }
                     });
                     listView.setVisible(false);
-                } else  if (filterField.getText() == null || filterField.getText().isEmpty()) {
+                } else if (filterField.getText() == null || filterField.getText().isEmpty()) {
                     filterField.clear();
                     webView.getEngine().loadContent("");
-                    //words.setEditable(false);
-                    // words.clear();
                 }
             });
-
 
 
             listView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
@@ -182,8 +168,6 @@ public class HelloController implements Initializable {
                     if (word.getWord().equals(t1)) {
                         webView.getEngine().loadContent(word.getMeaning());
                         webView.setVisible(true);
-                        //   words.getContentBias(null);
-                        //  words.setEditable(false);
                     }
                 });
                 filterField.setText(t1);
@@ -191,8 +175,6 @@ public class HelloController implements Initializable {
                 if (filterField.getText() == null || filterField.getText().isEmpty()) {
                     filterField.clear();
                     webView.getEngine().loadContent("");
-                    //words.setEditable(false);
-                    // words.clear();
                 }
             });
 
