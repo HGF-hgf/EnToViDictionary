@@ -1,3 +1,4 @@
+/*
 package com.example.dictionaryy;
 
 public class Words {
@@ -8,7 +9,6 @@ public class Words {
         this.word = word;
         this.meaning = meaning;
     }
-
 
 
     public void setWord(String word) {
@@ -27,3 +27,4 @@ public class Words {
         return meaning;
     }
 }
+*/

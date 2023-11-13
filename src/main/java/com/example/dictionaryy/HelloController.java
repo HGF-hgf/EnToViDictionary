@@ -1,3 +1,4 @@
+/*
 package com.example.dictionaryy;
 
 
@@ -74,19 +75,19 @@ public class HelloController implements Initializable {
         Connection connection;
         try {
             // create a database connection
-            //connection = DriverManager.getConnection("jdbc:sqlite:dict_hh.db");
-            connection = DriverManager.getConnection("jdbc:sqlite:sample.db");
+            connection = DriverManager.getConnection("jdbc:sqlite:dict_hh.db");
+            //connection = DriverManager.getConnection("jdbc:sqlite:sample.db");
             Statement statement = connection.createStatement();
             statement.setQueryTimeout(30);  // set timeout to 30 sec.
 
-            statement.executeUpdate("drop table if exists person");
-            statement.executeUpdate("create table person (word string, meaning string)");
-
-            String insertQuery = "insert into person (word, meaning) values (?, ?)";
-            PreparedStatement preparedStatement = connection.prepareStatement(insertQuery);
-            preparedStatement.setString(1, "accessary");
-            preparedStatement.setString(2, "<h1>accessary</h1><h3><i>/æk'sesəri/</i></h3><h2>danh từ,  (thường) số nhiều</h2><ul><li>đồ phụ tùng; vật phụ thuộc; đồ thêm vào</li><li>(pháp lý) kẻ tòng phạm, kẻ a tòng, kẻ đồng loã</li></ul><h2>tính từ</h2><ul><li>phụ, phụ vào, thêm vào</li><li>(pháp lý) a tòng, đồng loã</li></ul>");
-            preparedStatement.executeUpdate();
+//            statement.executeUpdate("drop table if exists person");
+//            statement.executeUpdate("create table person (word string, meaning string)");
+//
+//            String insertQuery = "insert into person (word, meaning) values (?, ?)";
+//            PreparedStatement preparedStatement = connection.prepareStatement(insertQuery);
+//            preparedStatement.setString(1, "accessary");
+//            preparedStatement.setString(2, "<h1>accessary</h1><h3><i>/æk'sesəri/</i></h3><h2>danh từ,  (thường) số nhiều</h2><ul><li>đồ phụ tùng; vật phụ thuộc; đồ thêm vào</li><li>(pháp lý) kẻ tòng phạm, kẻ a tòng, kẻ đồng loã</li></ul><h2>tính từ</h2><ul><li>phụ, phụ vào, thêm vào</li><li>(pháp lý) a tòng, đồng loã</li></ul>");
+//            preparedStatement.executeUpdate();
 
 
             ResultSet resultSet = statement.executeQuery("select * from av");
@@ -94,8 +95,8 @@ public class HelloController implements Initializable {
             while (resultSet.next()) {
                 // read the result set
                 String word = resultSet.getString("word");
-                //String meaning = resultSet.getString("html");
-                String meaning = resultSet.getString("meaning");
+                String meaning = resultSet.getString("html");
+                //String meaning = resultSet.getString("meaning");
                 dataList.add(word);
                 meaningList.add(new Words(word, meaning));
             }
@@ -125,12 +126,15 @@ public class HelloController implements Initializable {
             sortedData.addListener((ListChangeListener<String>) c -> {
                 if (sortedData.isEmpty()) {
                     listView.setVisible(false);
+                    listView.setPrefHeight(0); // set the height to 0 if there's no data
                 } else {
                     listView.setPrefHeight(24 * sortedData.size());
+                    listView.setVisible(true);
+                    if (listView.getHeight() >= 200) {
+                        listView.setPrefHeight(200);
+                    }
                 }
-                if (listView.getHeight() >= 200) {
-                    listView.setPrefHeight(200);
-                }
+
             });
             listView.setItems(sortedData);
             filterField.setOnMouseClicked(mouseEvent -> {
@@ -179,9 +183,11 @@ public class HelloController implements Initializable {
             });
 
 
-        } catch (SQLException e) {
+        } catch (
+                SQLException e) {
             Logger.getLogger(HelloController.class.getName()).log(Level.SEVERE, null, e);
             e.getCause();
         }
     }
 }
+*/

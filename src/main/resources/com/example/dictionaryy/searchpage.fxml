@@ -9,8 +9,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.web.WebView?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="787.0" prefWidth="1209.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionaryy.HelloController">
-    <Pane prefHeight="787.0" prefWidth="244.0" style="-fx-background-color: #6841A8;">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="1405.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionaryy.HelloController">
+    <Pane prefHeight="850.0" prefWidth="244.0" style="-fx-background-color: #6841A8;">
         <VBox layoutX="1.0" layoutY="178.0" prefHeight="414.0" prefWidth="151.0" spacing="50.0">
             <HBox prefHeight="40.0" prefWidth="151.0">
                 <Button mnemonicParsing="false" onAction="#switchToScene1" prefHeight="40.0" prefWidth="163.0" style="-fx-background-color: #6841A8;" stylesheets="@buttonStyle.css" text="Home" textFill="WHITE" />
@@ -26,20 +26,14 @@
             </HBox>
         </VBox>
     </Pane>
-    <Pane layoutX="155.0" prefHeight="787.0" prefWidth="1098.0" style="-fx-background-color: #4D0A67; -fx-background-radius: 20px; -fx-border-radius: 20px;">
-        <Pane layoutX="31.0" layoutY="53.0" prefHeight="701.0" prefWidth="417.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: #000000;">
-            <Pane layoutX="65.0" layoutY="42.0" prefHeight="36.0" prefWidth="278.0" style="-fx-background-color: #6841A8; -fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: #000000;">
-                <Pane layoutX="38.0" layoutY="5.0" prefHeight="26.0" prefWidth="202.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20px; -fx-border-radius: 20px; -fx-border-color: #000000;">
-                    <TextField fx:id="filterField" layoutX="-28.0" prefHeight="26.0" prefWidth="260.0" promptText="Search word" style="-fx-border-color: #000000; -fx-background-radius: 20px; -fx-border-radius: 20px;" />
-                </Pane>
-            </Pane>
-         <ListView fx:id="listView" layoutX="83.0" layoutY="78.0" prefHeight="24.0" prefWidth="244.0" />
+    <Pane layoutX="155.0" prefHeight="850.0" prefWidth="1290.0" style="-fx-background-color: #4D0A67; -fx-background-radius: 20px; -fx-border-radius: 20px;">
+        <Pane layoutX="107.0" layoutY="35.0" prefHeight="780.0" prefWidth="1131.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: #000000;">
+            <WebView fx:id="webView" layoutX="6.0" layoutY="53.0" prefHeight="720.0" prefWidth="1119.0" />
+            <Pane layoutX="-15.0" layoutY="-4.0" prefHeight="36.0" prefWidth="1155.0" style="-fx-background-color: #6841A8; -fx-background-radius: 20px; -fx-border-radius: 20px; -fx-border-color: #000000;">
+            <children>
+                    <TextField fx:id="filterField" layoutX="307.0" layoutY="9.0" prefHeight="26.0" prefWidth="542.0" promptText="Search word" style="-fx-border-color: #000000; -fx-background-radius: 20px; -fx-border-radius: 20px;" />
+            </children></Pane>
+         <ListView fx:id="listView" layoutX="306.0" layoutY="32.0" prefHeight="24.0" prefWidth="516.0" />
         </Pane>
-      <Pane layoutX="506.0" layoutY="53.0" prefHeight="590.0" prefWidth="504.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: #000000;">
-         <children>
-            <WebView fx:id="webView" layoutX="4.0" layoutY="56.0" prefHeight="524.0" prefWidth="497.0" />
-            <Pane layoutX="-15.0" layoutY="-4.0" prefHeight="36.0" prefWidth="538.0" style="-fx-background-color: #6841A8; -fx-background-radius: 20px; -fx-border-radius: 20px; -fx-border-color: #000000;" />
-         </children>
-      </Pane>
     </Pane>
 </AnchorPane>
