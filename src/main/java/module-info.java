@@ -3,11 +3,8 @@ module com.example.dictionaryy {
     requires javafx.fxml;
     requires java.sql;
     requires javafx.web;
-    requires google.cloud.translate;
 
-    requires google.cloud.core;
-    requires com.google.auth;
-    requires com.google.auth.oauth2;
+    requires org.xerial.sqlitejdbc;
     opens com.example.dictionaryy to javafx.fxml;
     exports com.example.dictionaryy;
 }

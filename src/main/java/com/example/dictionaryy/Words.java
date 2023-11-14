@@ -1,4 +1,3 @@
-/*
 package com.example.dictionaryy;
 
 public class Words {
@@ -27,4 +26,3 @@ public class Words {
         return meaning;
     }
 }
-*/

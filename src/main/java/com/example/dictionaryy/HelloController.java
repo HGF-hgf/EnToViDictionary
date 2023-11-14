@@ -1,4 +1,4 @@
-/*
+
 package com.example.dictionaryy;
 
 
@@ -190,4 +190,4 @@ public class HelloController implements Initializable {
         }
     }
 }
-*/
+
