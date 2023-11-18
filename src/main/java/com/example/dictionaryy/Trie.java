@@ -5,9 +5,8 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class Trie {
-    private static final TrieNode root = new TrieNode();
     private static final ArrayList<String> searchedWords = new ArrayList<>();
-
+    private static final TrieNode root = new TrieNode();
     public static ArrayList<String> getSearchedWords() {
         return searchedWords;
     }
@@ -46,7 +45,7 @@ public class Trie {
     // search for a word that starts with the prefix
     public static ArrayList<String> search(String  prefix){
         // if the prefix is null, return an empty list
-        if (prefix == null){
+        if (prefix.isEmpty()){
             return new ArrayList<>();
         }
         searchedWords.clear();
@@ -55,12 +54,12 @@ public class Trie {
             char ch = prefix.charAt(i);
             // if the character is not in the trie, return an empty list
             if (current.children.get(ch) == null){
-                return new ArrayList<>();
+                return getSearchedWords();
             }
             current = current.children.get(ch);
         }
         dfs(current, prefix);
-        return searchedWords;
+        return getSearchedWords();
     }
 
     public static void delete(String word){

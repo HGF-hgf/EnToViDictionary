@@ -18,6 +18,8 @@ import javafx.util.Callback;
 
 import java.util.ArrayList;
 
+import static com.example.dictionaryy.HelloApplication.dictionary;
+
 public class SearchController {
     private String latestWord = "";
     @FXML
@@ -37,6 +39,7 @@ public class SearchController {
     @FXML
     public void initialize() {
         Platform.runLater(() -> searchField.requestFocus());
+        takeSearchList();
     }
 
     @FXML
@@ -73,19 +76,19 @@ public class SearchController {
                             public void updateItem(String item, boolean empty) {
                                 super.updateItem(item, empty);
                                 if (item == null || empty) {
+                                    // setGraphic(null);
                                     setText(null);
-                                    setGraphic(null);
                                 } else if (item.charAt(0) != '*') {
+                                    // setGraphic(null);
                                     setText(item);
-                                    setGraphic(null);
-                                    setFont(Font.font("Arial", 16));
+                                    // setFont(Font.font("Arial", 16));
                                 } else {
                                     ImageView imageView = new ImageView(historyIcon);
                                     imageView.setFitHeight(16);
                                     imageView.setFitWidth(16);
                                     setGraphic(imageView);
                                     setText(" " + item.substring(1));
-                                    setFont(Font.font("Arial", 16));
+                                    //setFont(Font.font("Arial", 16));
                                 }
                             }
                         };
@@ -100,10 +103,10 @@ public class SearchController {
         if (word.startsWith("*")) {
             word = word.substring(1);
         }
-        if (!word.isEmpty()){
+        if (!word.isEmpty()) {
             History.addHistory(word);
         }
-        DictionaryB dictionary = new DictionaryB();
+
         String meaning = dictionary.search(word);
         if (meaning.equals("No word found")) {
             webView.getEngine().loadContent("<h1 style=\"text-align: center;\">" + meaning + "</h1>");
@@ -116,21 +119,20 @@ public class SearchController {
     @FXML
     public void selectEnter(KeyEvent key) {
         // if the list view is empty, return
-        if (listView.getSelectionModel().getSelectedIndices().isEmpty()){
+        if (listView.getSelectionModel().getSelectedIndices().isEmpty()) {
             return;
         }
-        if (key.getCode() == KeyCode.ENTER){
+        if (key.getCode() == KeyCode.ENTER) {
             String word = listView.getSelectionModel().getSelectedItem();
-            if (word.charAt(0) == '*'){
+            if (word.charAt(0) == '*') {
                 searchField.setText(word.substring(1));
-            }
-            else{
+            } else {
                 searchField.setText(word);
             }
             searchWord();
-        } else if (key.getCode() == KeyCode.UP){
+        } else if (key.getCode() == KeyCode.UP) {
             // if the selected index is 0 and the last selected index is 0, change the focus to the search field
-            if (listView.getSelectionModel().getSelectedIndex() == 0 && lastSelectedIndex == 0){
+            if (listView.getSelectionModel().getSelectedIndex() == 0 && lastSelectedIndex == 0) {
                 searchField.requestFocus();
             }
         }
@@ -139,14 +141,13 @@ public class SearchController {
     }
 
     @FXML
-    public void selectClick(MouseEvent event){
-        if (event.getButton().equals(MouseButton.PRIMARY)){
-            if (event.getClickCount() == 1){
+    public void selectClick(MouseEvent event) {
+        if (event.getButton().equals(MouseButton.PRIMARY)) {
+            if (event.getClickCount() == 1) {
                 String word = listView.getSelectionModel().getSelectedItem();
-                if (word.charAt(0) == '*'){
+                if (word.charAt(0) == '*') {
                     searchField.setText(word.substring(1));
-                }
-                else{
+                } else {
                     searchField.setText(word);
                 }
                 searchWord();

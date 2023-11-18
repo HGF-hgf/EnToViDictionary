@@ -2,14 +2,17 @@ package com.example.dictionaryy;
 
 import org.sqlite.SQLiteException;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.TreeMap;
 
 public abstract class Dictionary {
-    public void initialize() throws SQLiteException{}
+    public void initialize() throws SQLException {
+    }
 
-    public void close() {}
+    public void close() {
+    }
 
     public abstract ArrayList<Words> getAllWords();
 
