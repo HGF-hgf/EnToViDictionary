@@ -1,8 +1,11 @@
 package com.example.dictionaryy;
 
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
@@ -15,14 +18,18 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Font;
 import javafx.scene.web.WebView;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
+import javafx.scene.Node;
 
 import static com.example.dictionaryy.HelloApplication.dictionary;
+
 
 public class SearchController {
     public static boolean lightMode = true;
@@ -65,7 +72,6 @@ public class SearchController {
     public void initialize() {
         Platform.runLater(() -> searchField.requestFocus());
         takeHistoryIcon(isLightMode());
-
         takeSearchList();
     }
 
@@ -92,14 +98,18 @@ public class SearchController {
 
     private void takeHistoryIcon(boolean mode) {
         try {
-            historyIcon = new Image(new FileInputStream("icon/history-icon-" + (mode ? "light" : "dark") + ".png"));
+            historyIcon = new Image(new FileInputStream("/home/hoang/java/dictionaryy/src/main/resources/com/example/dictionaryy/icon/history-icon-" + (mode ? "light" : "dark") + ".png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public void takeSearchList() {
+        listView.setVisible(true);
         listView.getItems().clear();
+        if (searchField.getText().isEmpty()) {
+            listView.setVisible(false);
+        }
         String word = searchField.getText();
         ArrayList<String> searchedWords = Trie.search(word);
         ArrayList<String> history = History.getHistory();
@@ -109,8 +119,19 @@ public class SearchController {
             }
         }
         for (String w : searchedWords) {
-            listView.getItems().add(w);
+            if (!listView.getItems().contains("*" + w)) {
+                listView.getItems().add(w);
+            }
+
         }
+        if (listView.getItems().isEmpty()) {
+            listView.setVisible(false);
+        }
+        if (!searchField.getText().equals(latestWord) || searchField.getText().isEmpty()) {
+            webView.getEngine().loadContent("");
+            return;
+        }
+        //  listView.setPrefHeight(listView.getItems().size() * listView.getHeight());
         listView.setCellFactory(
                 new Callback<>() {
                     @Override
@@ -143,6 +164,11 @@ public class SearchController {
 
     @FXML
     public void searchWord() {
+        searchField.setOnMouseClicked(event -> {
+            if (listView.getItems() != null && !listView.getItems().isEmpty()) {
+                listView.setVisible(true);
+            }
+        });
         String word = searchField.getText();
         if (word.startsWith("*")) {
             word = word.substring(1);
@@ -154,12 +180,16 @@ public class SearchController {
         String meaning = dictionary.search(word);
 
         takeSearchList();
+
         if (meaning.equals("No word found")) {
+            listView.setVisible(false);
             webView.getEngine().loadContent("<h1 style=\"text-align: center;\">" + meaning + "</h1>");
         } else {
             latestWord = word;
             webView.getEngine().loadContent(meaning);
+            listView.setVisible(false);
         }
+
     }
 
     @FXML
@@ -172,8 +202,10 @@ public class SearchController {
             String word = listView.getSelectionModel().getSelectedItem();
             if (word.charAt(0) == '*') {
                 searchField.setText(word.substring(1));
+                listView.setVisible(false);
             } else {
                 searchField.setText(word);
+                listView.setVisible(false);
             }
             searchWord();
         } else if (key.getCode() == KeyCode.UP) {
@@ -184,11 +216,12 @@ public class SearchController {
         }
         // update the last selected index
         lastSelectedIndex = listView.getSelectionModel().getSelectedIndex();
+
     }
 
     @FXML
     public void selectClick(MouseEvent event) {
-        if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2) {
+        if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 1) {
             String word = listView.getSelectionModel().getSelectedItem();
             if (word.startsWith("*")) {
                 searchField.setText(word.substring(1));
@@ -201,8 +234,28 @@ public class SearchController {
 
     @FXML
     public void setTextToSpeechButton() {
-        if (latestWord != null) {
-            TextToSpeech.soundEnToVi(latestWord);
+        if (searchField.getText().isEmpty()) {
+            TextToSpeech.soundEnToVi("Please enter a word");
+        } else {
+            if (latestWord != null) {
+                TextToSpeech.soundEnToVi(latestWord);
+            } else {
+                TextToSpeech.soundEnToVi("No word found");
+            }
+        }
+    }
+
+    @FXML
+    public void setTranslateButton(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/GGTranslate.fxml")));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root, 1405, 850);
+            stage.setTitle("Google Translate");
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

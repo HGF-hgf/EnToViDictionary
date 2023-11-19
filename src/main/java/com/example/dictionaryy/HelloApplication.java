@@ -22,7 +22,7 @@ public class HelloApplication extends Application {
         primaryStage.setTitle("Dictionary");
         primaryStage.setResizable(false);
         try {
-            FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("searchpage.fxml"));
+            FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("fxml/GGTranslate.fxml"));
             Scene scene = new Scene(loader.load(), 1405, 850);
             primaryStage.setOnCloseRequest(
                     arg0 -> {
@@ -39,8 +39,8 @@ public class HelloApplication extends Application {
     }
 
     private void loadDictionary() {
+        dictionary = new DatabaseConnection();
         try {
-            dictionary = new DatabaseConnection();
             dictionary.initialize();
             System.out.println("Dictionary loaded");
             //TextToSpeech.soundEnToVi("Welcome to Dictionary");

@@ -19,7 +19,7 @@
                 <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="163.0" style="-fx-background-color: #6841A8;" styleClass="selected-border" stylesheets="@buttonStyle.css" text="Search" textFill="WHITE" />
             </HBox>
             <HBox layoutX="10.0" layoutY="70.0" prefHeight="40.0" prefWidth="151.0">
-                <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="164.0" style="-fx-background-color: #6841A8;" text="Game" textFill="WHITE" />
+                <Button fx:id="translateButton" mnemonicParsing="false" onAction="#setTranslateButton" prefHeight="46.0" prefWidth="164.0" style="-fx-background-color: #6841A8;" text="GGTranslate" textFill="WHITE" />
             </HBox>
             <HBox layoutX="10.0" layoutY="70.0" prefHeight="40.0" prefWidth="151.0">
                 <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="164.0" style="-fx-background-color: #6841A8;" text="History" textFill="WHITE" />
@@ -33,8 +33,8 @@
             <children>
                     <TextField fx:id="searchField" layoutX="307.0" layoutY="9.0" onAction="#searchWord" onKeyPressed="#changeFocus" onKeyTyped="#takeSearchList" prefHeight="26.0" prefWidth="542.0" promptText="Search word" style="-fx-border-color: #000000; -fx-background-radius: 20px; -fx-border-radius: 20px;" />
             </children></Pane>
-         <ListView fx:id="listView" layoutX="39.0" layoutY="118.0" onKeyPressed="#selectEnter" onMouseClicked="#selectClick" prefHeight="608.0" prefWidth="516.0" />
-         <Button fx:id="textToSpeechButton" layoutX="486.0" layoutY="69.0" mnemonicParsing="false" onAction="#setTextToSpeechButton" text="textToSpeech" />
+         <ListView fx:id="listView" layoutX="305.0" layoutY="32.0" onKeyPressed="#selectEnter" onMouseClicked="#selectClick" prefHeight="281.0" prefWidth="516.0" />
+         <Button fx:id="textToSpeechButton" layoutX="948.0" layoutY="62.0" mnemonicParsing="false" onAction="#setTextToSpeechButton" text="textToSpeech" />
         </Pane>
     </Pane>
 </AnchorPane>

@@ -25,4 +25,21 @@ public class TextToSpeech {
             System.out.println("Error");
         }
     }
+
+    public static void soundViToEn(String text){
+        try {
+            String link = "https://translate.google.com/translate_tts?ie=UTF-8&tl="
+                    + "vi"
+                    + "&client=tw-ob&q="
+                    + URLEncoder.encode(text, StandardCharsets.UTF_8);
+            URL url = new URL(link);
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            InputStream is = con.getInputStream();
+            new Player(is).play();
+            con.disconnect();
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error");
+        }
+    }
 }
