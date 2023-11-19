@@ -51,12 +51,19 @@ public class HelloApplication extends Application {
     }
 
     public static void main(String[] args) {
-        ArrayList<String> list = new ArrayList<>(Objects.requireNonNull(Trie.search("a")));
-        if (!list.isEmpty()) {
-            System.out.println(list.get(0));
-        } else {
-            System.out.println("No word found");
+        try {
+            DatabaseConnection db = new DatabaseConnection();
+            db.initialize();
+            ArrayList<String> list = new ArrayList<>(Objects.requireNonNull(Trie.search("a")));
+            if (!list.isEmpty()) {
+                System.out.println(list.get(0));
+            } else {
+                System.out.println("No word found");
+            }
+        } catch (Exception e){
+            e.printStackTrace();
         }
+
         launch(args);
     }
 }

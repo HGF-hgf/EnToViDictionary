@@ -3,6 +3,7 @@ package com.example.dictionaryy;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
@@ -16,11 +17,15 @@ import javafx.scene.text.Font;
 import javafx.scene.web.WebView;
 import javafx.util.Callback;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import static com.example.dictionaryy.HelloApplication.dictionary;
 
 public class SearchController {
+    public static boolean lightMode = true;
     private String latestWord = "";
     @FXML
     private TextField searchField;
@@ -32,25 +37,64 @@ public class SearchController {
     // the last selected index of the list view
     private int lastSelectedIndex = 0;
     private Image historyIcon;
+    @FXML
+    private Button addWordButton;
+    @FXML
+    private Button deleteWordButton;
+    @FXML
+    private Button editWordButton;
+    @FXML
+    private Button translateButton;
+    @FXML
+    private Button toggleModeButton;
+    @FXML
+    private Button textToSpeechButton;
 
     public SearchController() {
+    }
+
+    public static boolean isLightMode() {
+        return lightMode;
+    }
+
+    public static void toggleMode() {
+        lightMode = !lightMode;
     }
 
     @FXML
     public void initialize() {
         Platform.runLater(() -> searchField.requestFocus());
+        takeHistoryIcon(isLightMode());
+
         takeSearchList();
     }
 
+    //    @FXML void setToggleModeButton(){
+//        toggleMode();
+//        if (!isLightMode()){
+//            toggleModeButton.getScene().getStylesheets().clear();
+//            toggleModeButton.getScene().getStylesheets().add("com/example/dictionaryy/dark.css");
+//
+//        }
+//
+//    }
     @FXML
     public void changeFocus(KeyEvent key) {
         // if the user presses the down arrow key, change the focus to the list view
-        if (key.getCode() == javafx.scene.input.KeyCode.DOWN) {
+        if (key.getCode() == KeyCode.DOWN) {
             listView.requestFocus();
             // if the list view is not empty, select the first item
             if (!listView.getItems().isEmpty()) {
                 listView.getSelectionModel().select(0);
             }
+        }
+    }
+
+    private void takeHistoryIcon(boolean mode) {
+        try {
+            historyIcon = new Image(new FileInputStream("icon/history-icon-" + (mode ? "light" : "dark") + ".png"));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -76,19 +120,19 @@ public class SearchController {
                             public void updateItem(String item, boolean empty) {
                                 super.updateItem(item, empty);
                                 if (item == null || empty) {
-                                    // setGraphic(null);
+                                    setGraphic(null);
                                     setText(null);
                                 } else if (item.charAt(0) != '*') {
-                                    // setGraphic(null);
+                                    setGraphic(null);
                                     setText(item);
-                                    // setFont(Font.font("Arial", 16));
+                                    setFont(Font.font("Arial", 15));
                                 } else {
                                     ImageView imageView = new ImageView(historyIcon);
-                                    imageView.setFitHeight(16);
-                                    imageView.setFitWidth(16);
+                                    imageView.setFitHeight(15);
+                                    imageView.setFitWidth(15);
                                     setGraphic(imageView);
                                     setText(" " + item.substring(1));
-                                    //setFont(Font.font("Arial", 16));
+                                    setFont(Font.font("Arial", 15));
                                 }
                             }
                         };
@@ -108,6 +152,8 @@ public class SearchController {
         }
 
         String meaning = dictionary.search(word);
+
+        takeSearchList();
         if (meaning.equals("No word found")) {
             webView.getEngine().loadContent("<h1 style=\"text-align: center;\">" + meaning + "</h1>");
         } else {
@@ -142,18 +188,22 @@ public class SearchController {
 
     @FXML
     public void selectClick(MouseEvent event) {
-        if (event.getButton().equals(MouseButton.PRIMARY)) {
-            if (event.getClickCount() == 1) {
-                String word = listView.getSelectionModel().getSelectedItem();
-                if (word.charAt(0) == '*') {
-                    searchField.setText(word.substring(1));
-                } else {
-                    searchField.setText(word);
-                }
-                searchWord();
+        if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2) {
+            String word = listView.getSelectionModel().getSelectedItem();
+            if (word.startsWith("*")) {
+                searchField.setText(word.substring(1));
+            } else {
+                searchField.setText(word);
             }
+            searchWord();
         }
     }
 
+    @FXML
+    public void setTextToSpeechButton() {
+        if (latestWord != null) {
+            TextToSpeech.soundEnToVi(latestWord);
+        }
+    }
 
 }

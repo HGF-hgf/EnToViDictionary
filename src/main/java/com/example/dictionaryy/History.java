@@ -22,9 +22,10 @@ public class History {
             history.remove(0);
         }
     }
+
     public static void loadHistory() {
         // create the history folder and file if they don't exist
-        File file = new File("dictionary");
+        File file = new File("dictionary-history/");
         // if the folder doesn't exist, create it
         if (!file.exists()) {
             // if the folder is not created, print an error message
@@ -34,7 +35,7 @@ public class History {
         }
 
         // if the file doesn't exist, create it
-        File historyFile = new File("dictionary/history.txt");
+        File historyFile = new File(file + "/history.txt");
         // if the file is not created, print an error message
         if (!historyFile.exists()) {
             try {
@@ -48,37 +49,39 @@ public class History {
             return;
         }
 
-        try{
+        try {
             BufferedReader reader = new BufferedReader(
                     new InputStreamReader(
-                            new FileInputStream(historyFile), StandardCharsets.UTF_8));
+                            new FileInputStream("dictionary-history/history.txt"),
+                            StandardCharsets.UTF_8));
 
             String line;
-            while((line = reader.readLine()) != null){
-                history.add(line);
+            while ((line = reader.readLine()) != null) {
+                history.add(line.strip());
             }
-        } catch (IOException e) {
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
             System.out.println("Error loading history file");
+        } catch (IOException e){
+            e.printStackTrace();
+            System.out.println("Error reading history file");
         }
         refactorHistory();
     }
 
-    public static void addHistory(String word){
-        if (history.contains(word)){
-            history.remove(word);
-        }
+    public static void addHistory(String word) {
+        history.removeIf(w -> w.equals(word));
         history.add(word);
         refactorHistory();
     }
 
-    public static void addToFile(){
-        try{
+    public static void addToFile() {
+        try {
             Writer writer = new BufferedWriter(
                     new OutputStreamWriter(
-                            new FileOutputStream("dictionary/history.txt"), StandardCharsets.UTF_8));
+                            new FileOutputStream("dictionary-history/history.txt"), StandardCharsets.UTF_8));
             StringBuilder str = new StringBuilder();
-            for (String word : history){
+            for (String word : history) {
                 str.append(word).append("\n");
             }
             writer.write(str.toString());
@@ -88,6 +91,4 @@ public class History {
             System.out.println("Error writing to history file");
         }
     }
-
-
 }

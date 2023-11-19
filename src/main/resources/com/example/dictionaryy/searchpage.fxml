@@ -31,9 +31,10 @@
             <WebView fx:id="webView" layoutX="590.0" layoutY="53.0" prefHeight="720.0" prefWidth="535.0" />
             <Pane layoutX="-15.0" layoutY="-4.0" prefHeight="36.0" prefWidth="1155.0" style="-fx-background-color: #6841A8; -fx-background-radius: 20px; -fx-border-radius: 20px; -fx-border-color: #000000;">
             <children>
-                    <TextField fx:id="searchField" layoutX="307.0" layoutY="9.0" onAction="#searchWord" prefHeight="26.0" prefWidth="542.0" promptText="Search word" style="-fx-border-color: #000000; -fx-background-radius: 20px; -fx-border-radius: 20px;" />
+                    <TextField fx:id="searchField" layoutX="307.0" layoutY="9.0" onAction="#searchWord" onKeyPressed="#changeFocus" onKeyTyped="#takeSearchList" prefHeight="26.0" prefWidth="542.0" promptText="Search word" style="-fx-border-color: #000000; -fx-background-radius: 20px; -fx-border-radius: 20px;" />
             </children></Pane>
-         <ListView fx:id="listView" layoutX="39.0" layoutY="118.0" prefHeight="608.0" prefWidth="516.0" />
+         <ListView fx:id="listView" layoutX="39.0" layoutY="118.0" onKeyPressed="#selectEnter" onMouseClicked="#selectClick" prefHeight="608.0" prefWidth="516.0" />
+         <Button fx:id="textToSpeechButton" layoutX="486.0" layoutY="69.0" mnemonicParsing="false" onAction="#setTextToSpeechButton" text="textToSpeech" />
         </Pane>
     </Pane>
 </AnchorPane>
