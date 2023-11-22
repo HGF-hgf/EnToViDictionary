@@ -259,4 +259,17 @@ public class SearchController {
         }
     }
 
+    @FXML
+    public void setAddWordButton(ActionEvent event){
+        try{
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/AddWord.fxml")));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root, 1405, 850);
+            stage.setTitle("Add Word");
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

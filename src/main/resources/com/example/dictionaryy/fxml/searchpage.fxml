@@ -22,7 +22,7 @@
                 <Button fx:id="translateButton" mnemonicParsing="false" onAction="#setTranslateButton" prefHeight="46.0" prefWidth="164.0" style="-fx-background-color: #6841A8;" text="GGTranslate" textFill="WHITE" />
             </HBox>
             <HBox layoutX="10.0" layoutY="70.0" prefHeight="40.0" prefWidth="151.0">
-                <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="164.0" style="-fx-background-color: #6841A8;" text="History" textFill="WHITE" />
+                <Button fx:id="addWordButton" mnemonicParsing="false" onAction="#setAddWordButton" prefHeight="46.0" prefWidth="164.0" style="-fx-background-color: #6841A8;" text="Add Word" textFill="WHITE" />
             </HBox>
         </VBox>
     </Pane>

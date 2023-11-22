@@ -6,6 +6,7 @@ module com.example.dictionaryy {
 
     requires org.xerial.sqlitejdbc;
     requires jlayer;
+    requires org.jsoup;
     opens com.example.dictionaryy to javafx.fxml;
     exports com.example.dictionaryy;
 }

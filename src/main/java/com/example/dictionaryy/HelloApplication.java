@@ -22,7 +22,7 @@ public class HelloApplication extends Application {
         primaryStage.setTitle("Dictionary");
         primaryStage.setResizable(false);
         try {
-            FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("fxml/GGTranslate.fxml"));
+            FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("fxml/searchpage.fxml"));
             Scene scene = new Scene(loader.load(), 1405, 850);
             primaryStage.setOnCloseRequest(
                     arg0 -> {
@@ -51,19 +51,6 @@ public class HelloApplication extends Application {
     }
 
     public static void main(String[] args) {
-        try {
-            DatabaseConnection db = new DatabaseConnection();
-            db.initialize();
-            ArrayList<String> list = new ArrayList<>(Objects.requireNonNull(Trie.search("a")));
-            if (!list.isEmpty()) {
-                System.out.println(list.get(0));
-            } else {
-                System.out.println("No word found");
-            }
-        } catch (Exception e){
-            e.printStackTrace();
-        }
-
         launch(args);
     }
 }
