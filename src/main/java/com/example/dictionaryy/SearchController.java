@@ -27,6 +27,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
 import javafx.scene.Node;
+import org.w3c.dom.Document;
 
 import static com.example.dictionaryy.HelloApplication.dictionary;
 
@@ -71,19 +72,24 @@ public class SearchController {
     @FXML
     public void initialize() {
         Platform.runLater(() -> searchField.requestFocus());
+        setButton();
         takeHistoryIcon(isLightMode());
         takeSearchList();
     }
 
-    //    @FXML void setToggleModeButton(){
-//        toggleMode();
-//        if (!isLightMode()){
-//            toggleModeButton.getScene().getStylesheets().clear();
-//            toggleModeButton.getScene().getStylesheets().add("com/example/dictionaryy/dark.css");
-//
-//        }
-//
-//    }
+    public void setButton(){
+        textToSpeechButton.setVisible(true);
+        if (searchField.getText().isEmpty()) {
+            textToSpeechButton.setVisible(false);
+        } else {
+            textToSpeechButton.setVisible(true);
+        }
+        Image voiceImage = new Image(getClass().getResourceAsStream("icon/voice-icon-" + "light" + ".png"));
+        ImageView voiceIcon = new ImageView(voiceImage);
+        voiceIcon.setFitHeight(25);
+        voiceIcon.setFitWidth(25);
+        textToSpeechButton.setGraphic(voiceIcon);
+    }
     @FXML
     public void changeFocus(KeyEvent key) {
         // if the user presses the down arrow key, change the focus to the list view
@@ -152,6 +158,7 @@ public class SearchController {
                                     imageView.setFitHeight(15);
                                     imageView.setFitWidth(15);
                                     setGraphic(imageView);
+                                    System.out.println("image set");
                                     setText(" " + item.substring(1));
                                     setFont(Font.font("Arial", 15));
                                 }
@@ -164,6 +171,17 @@ public class SearchController {
 
     @FXML
     public void searchWord() {
+        searchField.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.BACK_SPACE) {
+                textToSpeechButton.setVisible(false);
+            }
+            if (event.getCode() == KeyCode.DOWN) {
+                listView.requestFocus();
+                if (!listView.getItems().isEmpty()) {
+                    listView.getSelectionModel().select(0);
+                }
+            }
+        });
         searchField.setOnMouseClicked(event -> {
             if (listView.getItems() != null && !listView.getItems().isEmpty()) {
                 listView.setVisible(true);
@@ -184,12 +202,16 @@ public class SearchController {
         if (meaning.equals("No word found")) {
             listView.setVisible(false);
             webView.getEngine().loadContent("<h1 style=\"text-align: center;\">" + meaning + "</h1>");
+            textToSpeechButton.setVisible(false);
         } else {
             latestWord = word;
             webView.getEngine().loadContent(meaning);
+            textToSpeechButton.setVisible(true);
             listView.setVisible(false);
         }
-
+        if (searchField.getText().isEmpty()) {
+            textToSpeechButton.setVisible(false);
+        }
     }
 
     @FXML
