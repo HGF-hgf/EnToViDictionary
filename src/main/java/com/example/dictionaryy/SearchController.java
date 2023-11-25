@@ -26,6 +26,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
+
 import javafx.scene.Node;
 import org.w3c.dom.Document;
 
@@ -60,7 +61,6 @@ public class SearchController {
 
     public SearchController() {
     }
-
     public static boolean isLightMode() {
         return lightMode;
     }
@@ -77,7 +77,7 @@ public class SearchController {
         takeSearchList();
     }
 
-    public void setButton(){
+    public void setButton() {
         textToSpeechButton.setVisible(true);
         if (searchField.getText().isEmpty()) {
             textToSpeechButton.setVisible(false);
@@ -90,6 +90,7 @@ public class SearchController {
         voiceIcon.setFitWidth(25);
         textToSpeechButton.setGraphic(voiceIcon);
     }
+
     @FXML
     public void changeFocus(KeyEvent key) {
         // if the user presses the down arrow key, change the focus to the list view
@@ -282,14 +283,48 @@ public class SearchController {
     }
 
     @FXML
-    public void setAddWordButton(ActionEvent event){
-        try{
+    public void setAddWordButton(ActionEvent event) {
+        try {
+            Stage popup = new Stage();
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/AddWord.fxml")));
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root, 1405, 850);
-            stage.setTitle("Add Word");
-            stage.setScene(scene);
-            stage.show();
+            Scene scene = new Scene(root, 681, 600);
+            popup.setTitle("Add Word");
+            popup.setScene(scene);
+            popup.show();
+            popup.setResizable(false);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void setDeleteWordButton(ActionEvent event) {
+        try{
+            Stage popup = new Stage();
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/DeleteWord.fxml")));
+            Scene scene = new Scene(root, 337, 150);
+            popup.setTitle("Delete Word");
+            popup.setScene(scene);
+            popup.show();
+            popup.setResizable(false);
+            latestWord = "";
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void setEditWordButton(ActionEvent event) {
+        try {
+            UpdateWordController.setEditWord(latestWord);
+            Stage popup = new Stage();
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/EditWord.fxml")));
+            Scene scene = new Scene(root, 840, 590);
+            popup.setTitle("Edit Word Meaning");
+            popup.setScene(scene);
+            popup.show();
+            popup.setResizable(false);
+            latestWord = "";
         } catch (IOException e) {
             e.printStackTrace();
         }

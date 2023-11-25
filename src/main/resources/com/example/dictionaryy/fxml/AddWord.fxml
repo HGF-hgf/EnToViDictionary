@@ -5,11 +5,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.web.HTMLEditor?>
 
-<AnchorPane prefHeight="850.0" prefWidth="1405.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionaryy.AddWordController">
+<AnchorPane prefHeight="550.0" prefWidth="681.0" style="-fx-border-color: #000000;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionaryy.AddWordController">
    <children>
-      <TextField fx:id="wordTextField" layoutX="319.0" layoutY="182.0" prefHeight="44.0" prefWidth="616.0" />
-      <HTMLEditor fx:id="htmlEditor" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="319.0" layoutY="306.0" prefHeight="381.0" prefWidth="616.0" />
-      <Button layoutX="873.0" layoutY="718.0" mnemonicParsing="false" onAction="#setSaveButton" text="Save" />
-      <Button layoutX="761.0" layoutY="718.0" mnemonicParsing="false" onAction="#setCancelButton" text="Cancel" />
+      <TextField fx:id="wordTextField" layoutX="33.0" layoutY="74.0" prefHeight="44.0" prefWidth="616.0" />
+      <HTMLEditor fx:id="htmlEditor" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="33.0" layoutY="158.0" prefHeight="381.0" prefWidth="616.0" />
+      <Button layoutX="486.0" layoutY="555.0" mnemonicParsing="false" onAction="#setSaveButton" prefHeight="24.0" prefWidth="63.0" text="Save" />
+      <Button layoutX="578.0" layoutY="555.0" mnemonicParsing="false" onAction="#setCancelButton" text="Cancel" />
    </children>
 </AnchorPane>

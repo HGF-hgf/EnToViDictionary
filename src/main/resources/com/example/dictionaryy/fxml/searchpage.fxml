@@ -11,19 +11,32 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="1405.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionaryy.SearchController">
     <Pane prefHeight="850.0" prefWidth="244.0" style="-fx-background-color: #6841A8;">
-        <VBox layoutX="1.0" layoutY="178.0" prefHeight="414.0" prefWidth="151.0" spacing="50.0">
+        <VBox layoutY="188.0" prefHeight="414.0" prefWidth="151.0" spacing="50.0">
             <HBox prefHeight="40.0" prefWidth="151.0">
-                <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="163.0" style="-fx-background-color: #6841A8;" stylesheets="@buttonStyle.css" text="Home" textFill="WHITE" />
+            <children>
+                   <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="163.0" style="-fx-background-color: #6841A8;" styleClass="selected-border" stylesheets="@buttonStyle.css" text="Search" textFill="WHITE" />
+            </children>
             </HBox>
             <HBox layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="151.0">
-                <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="163.0" style="-fx-background-color: #6841A8;" styleClass="selected-border" stylesheets="@buttonStyle.css" text="Search" textFill="WHITE" />
+            <children>
+                   <Button fx:id="translateButton" mnemonicParsing="false" onAction="#setTranslateButton" prefHeight="46.0" prefWidth="164.0" style="-fx-background-color: #6841A8;" text="GGTranslate" textFill="WHITE" />
+            </children>
             </HBox>
             <HBox layoutX="10.0" layoutY="70.0" prefHeight="40.0" prefWidth="151.0">
-                <Button fx:id="translateButton" mnemonicParsing="false" onAction="#setTranslateButton" prefHeight="46.0" prefWidth="164.0" style="-fx-background-color: #6841A8;" text="GGTranslate" textFill="WHITE" />
+            <children>
+                   <Button fx:id="addWordButton" mnemonicParsing="false" onAction="#setAddWordButton" prefHeight="46.0" prefWidth="164.0" style="-fx-background-color: #6841A8;" text="Add Word" textFill="WHITE" />
+            </children>
             </HBox>
             <HBox layoutX="10.0" layoutY="70.0" prefHeight="40.0" prefWidth="151.0">
-                <Button fx:id="addWordButton" mnemonicParsing="false" onAction="#setAddWordButton" prefHeight="46.0" prefWidth="164.0" style="-fx-background-color: #6841A8;" text="Add Word" textFill="WHITE" />
+            <children>
+               <Button fx:id="deleteWordButton" mnemonicParsing="false" onAction="#setDeleteWordButton" prefHeight="46.0" prefWidth="164.0" style="-fx-background-color: #6841A8;" text="Delete Word" textFill="WHITE" />
+            </children>
             </HBox>
+         <HBox layoutX="10.0" layoutY="280.0" prefHeight="40.0" prefWidth="151.0">
+            <children>
+               <Button fx:id="editWordButton" mnemonicParsing="false" onAction="#setEditWordButton" prefHeight="46.0" prefWidth="164.0" style="-fx-background-color: #6841A8;" text="Edit Word Meaning" textFill="WHITE" />
+            </children>
+         </HBox>
         </VBox>
     </Pane>
     <Pane layoutX="155.0" prefHeight="850.0" prefWidth="1290.0" style="-fx-background-color: #4D0A67; -fx-background-radius: 20px; -fx-border-radius: 20px;">
