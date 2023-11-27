@@ -138,7 +138,6 @@ public class SearchController {
             webView.getEngine().loadContent("");
             return;
         }
-        //  listView.setPrefHeight(listView.getItems().size() * listView.getHeight());
         listView.setCellFactory(
                 new Callback<>() {
                     @Override
@@ -159,7 +158,6 @@ public class SearchController {
                                     imageView.setFitHeight(15);
                                     imageView.setFitWidth(15);
                                     setGraphic(imageView);
-                                    System.out.println("image set");
                                     setText(" " + item.substring(1));
                                     setFont(Font.font("Arial", 15));
                                 }
