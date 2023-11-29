@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
-    <artifactId>dictionaryy</artifactId>
+    <artifactId>dictionary</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>dictionaryy</name>
+    <name>dictionary</name>
     <description>Dictionary</description>
 
     <packaging>jar</packaging>
@@ -102,7 +102,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.example.dictionaryy/com.example.dictionaryy.HelloApplication</mainClass>
+                            <mainClass>com.example.dictionary.Application</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>

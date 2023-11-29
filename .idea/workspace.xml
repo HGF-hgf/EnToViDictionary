@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="411a0a16-a100-46ea-a142-bee7c3cbcca9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/AddWordController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/Alerts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jar/guava-22.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jar/java-google-speech-api-V2.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jar/marytts-builder-5.2-jar-with-dependencies.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jar/marytts-lang-en-5.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jar/voice-cmu-rms-hsmm-5.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jar/voice-cmu-slt-hsmm-5.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jar/voice-dfki-poppy-hsmm-5.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dict_hh.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/dict_hh.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionaryy/AddWordController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionaryy/AddWordService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionaryy/AddWordTask.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionaryy/Assist.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionaryy/AssistController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionaryy/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/core/DatabaseConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionaryy/DeleteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/DeleteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionaryy/Dictionary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/core/Dictionary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionaryy/DictionaryB.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionaryy/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionaryy/History.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/core/History.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionaryy/SearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/SearchController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionaryy/TextToSpeech.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/api/TextToSpeech.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionaryy/TextToSpeechController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/TextToSpeechController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionaryy/Translator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/api/Translator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionaryy/TranslatorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/TranslatorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionaryy/Trie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/core/Trie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionaryy/UpdateWordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/UpdateWordController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionaryy/Words.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/core/Words.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/dictionaryy/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/dictionaryy/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/dictionaryy/fxml/AddWord.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/dictionaryy/fxml/DeleteWord.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/dictionaryy/fxml/EditWord.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/dictionaryy/fxml/GGTranslate.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/dictionaryy/fxml/buttonStyle.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/dictionaryy/fxml/gamepage.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/dictionaryy/fxml/homepage.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/dictionaryy/fxml/searchpage.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/dictionaryy/icon/add-icon-dark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/dictionaryy/icon/add-icon-light.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/dictionaryy/icon/alter-icon-dark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/dictionaryy/icon/alter-icon-light.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/dictionaryy/icon/delete-icon-dark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/dictionaryy/icon/delete-icon-light.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/dictionaryy/icon/dictionary-icon-dark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/dictionaryy/icon/dictionary-icon-light.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/dictionaryy/icon/edit-icon-dark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/dictionaryy/icon/edit-icon-light.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/dictionaryy/icon/export-icon-dark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/dictionaryy/icon/export-icon-light.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/dictionaryy/icon/google-icon-dark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/dictionaryy/icon/google-icon-light.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/dictionaryy/icon/help-icon-dark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/dictionaryy/icon/help-icon-light.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/dictionaryy/icon/history-icon-dark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/dictionaryy/icon/history-icon-light.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/dictionaryy/icon/info-icon-dark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/dictionaryy/icon/info-icon-light.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/dictionaryy/icon/mode-icon-dark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/dictionaryy/icon/mode-icon-light.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/dictionaryy/icon/pronounce-icon-dark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/dictionaryy/icon/pronounce-icon-light.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/dictionaryy/icon/translate-icon-dark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/dictionaryy/icon/translate-icon-light.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/dictionaryy/icon/voice-icon-dark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/dictionaryy/icon/voice-icon-light.png" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 2
+}]]></component>
+  <component name="ProjectId" id="2Yr0Oo8Me6Unej4cn4eyP4Cd4xT" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\java\dictionary\src\main\resources\com\example\dictionary" />
+      <recent name="D:\java\dictionary\src\main\resources" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="411a0a16-a100-46ea-a142-bee7c3cbcca9" name="Changes" comment="" />
+      <created>1701268364003</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1701268364003</updated>
+    </task>
+    <servers />
+  </component>
+</project>

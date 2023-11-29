@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="850.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.ui.SearchController">
+    <Pane prefHeight="550.0" prefWidth="859.0" styleClass="root" stylesheets="@../style.css">
+      <children>
+         <ImageView fitHeight="52.0" fitWidth="38.0" layoutX="11.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../icons/book.png" />
+            </image>
+         </ImageView>
+             <Button layoutX="7.0" layoutY="74.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" styleClass="menu-item" stylesheets="@../style.css" textFill="WHITE">
+            <tooltip>
+               <Tooltip text="Tra từ điển" />
+            </tooltip>
+            <graphic>
+               <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../icons/icons8_search_24px.png" />
+                  </image>
+               </ImageView>
+            </graphic>
+         </Button>
+             <Button fx:id="translateButton" layoutX="7.0" layoutY="119.0" mnemonicParsing="false" onAction="#setTranslateButton" prefHeight="45.0" prefWidth="45.0" styleClass="menu-item" stylesheets="@../style.css" textFill="WHITE">
+            <tooltip>
+               <Tooltip text="Phiên dịch" />
+            </tooltip>
+            <graphic>
+               <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../icons/keyboard.png" />
+                  </image>
+               </ImageView>
+            </graphic>
+         </Button>
+             <Button fx:id="addWordButton" layoutX="7.0" layoutY="164.0" mnemonicParsing="false" onAction="#setAddWordButton" prefHeight="45.0" prefWidth="45.0" styleClass="menu-item" stylesheets="@../style.css" textFill="WHITE">
+            <tooltip>
+               <Tooltip text="Thêm từ mới" />
+            </tooltip>
+            <graphic>
+               <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../icons/icons8_add_32px.png" />
+                  </image>
+               </ImageView>
+            </graphic>
+         </Button>
+         <Pane layoutX="65.0" prefHeight="550.0" prefWidth="792.0" style="-fx-background-color: #ffffff; -fx-border-radius: 10px; -fx-background-radius: 10px;" styleClass="search-box" stylesheets="@../style.css">
+            <children>
+                    <TextField fx:id="searchField" layoutX="14.0" layoutY="63.0" onAction="#searchWord" onKeyPressed="#changeFocus" onKeyTyped="#takeSearchList" prefHeight="27.0" prefWidth="264.0" promptText="Search word" styleClass="search-box" stylesheets="@../style.css" />
+               <ListView fx:id="listView" layoutX="14.0" layoutY="207.0" onKeyPressed="#selectEnter" onMouseClicked="#selectClick" prefHeight="327.0" prefWidth="264.0" styleClass="list-cell" stylesheets="@../style.css" />
+               <Pane layoutX="12.0" layoutY="123.0" prefHeight="72.0" prefWidth="264.0" styleClass="title" stylesheets="@../style.css">
+                  <children>
+                     <Label fx:id="headerList" alignment="CENTER" layoutX="12.0" layoutY="13.0" prefHeight="46.0" prefWidth="232.0" text="Các kết quả liên quan" textFill="#2a4878">
+                        <font>
+                           <Font name="Google Sans Bold" size="16.5" />
+                        </font>
+                     </Label>
+                  </children>
+               </Pane>
+               <Pane layoutX="291.0" layoutY="123.0" prefHeight="406.0" prefWidth="491.0" styleClass="definition-wrapper" stylesheets="@../style.css">
+                  <children>
+                        <WebView fx:id="webView" layoutX="14.0" layoutY="94.0" prefHeight="262.0" prefWidth="469.0" />
+                     <Label fx:id="englishWord" layoutX="12.0" layoutY="14.0" prefHeight="72.0" prefWidth="473.0" text="Dictionary" wrapText="true">
+                        <font>
+                           <Font name="Google Sans Medium" size="34.0" />
+                        </font>
+                        <padding>
+                           <Insets left="5.0" />
+                        </padding>
+                        <graphic>
+                           <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                 <Image url="@../icons/word2.png" />
+                              </image>
+                           </ImageView>
+                        </graphic>
+                     </Label>
+                     <Button fx:id="deleteWordButton" layoutX="81.0" layoutY="360.0" mnemonicParsing="false" onAction="#setDeleteWordButton" prefHeight="32.0" prefWidth="60.0" styleClass="delete-button" stylesheets="@../style.css" text="Delete Word" textFill="WHITE" />
+                     <Button fx:id="editWordButton" layoutX="12.0" layoutY="360.0" mnemonicParsing="false" onAction="#setEditWordButton" prefHeight="32.0" prefWidth="60.0" styleClass="edit-button" stylesheets="@../style.css" textFill="WHITE">
+                        <graphic>
+                           <ImageView fitHeight="20.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                 <Image url="@../icons/edit.png" />
+                              </image>
+                           </ImageView>
+                        </graphic>
+                     </Button>
+                     <ImageView fitHeight="20.0" fitWidth="23.0" layoutX="101.0" layoutY="366.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../icons/delete.png" />
+                        </image>
+                     </ImageView>
+                     <Button fx:id="textToSpeechButton" layoutX="156.0" layoutY="359.0" mnemonicParsing="false" onAction="#setTextToSpeechButton" prefHeight="33.0" prefWidth="60.0" style="-fx-background-color: #ffff;" styleClass="volume-button" stylesheets="@../style.css">
+                        <graphic>
+                           <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                 <Image url="@../icon/voice-icon-light.png" />
+                              </image>
+                           </ImageView>
+                        </graphic>
+                     </Button>
+                  </children>
+               </Pane>
+               <ImageView fitHeight="58.0" fitWidth="308.0" layoutX="552.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../icons/logo.png" />
+                  </image>
+               </ImageView>
+            </children>
+         </Pane>
+         <Button fx:id="exitButton" layoutX="7.0" layoutY="491.0" mnemonicParsing="false" onAction="#setExitButton" prefHeight="45.0" prefWidth="45.0" styleClass="exit-button" stylesheets="@../style.css">
+            <graphic>
+               <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../icons/icons8_exit_32px.png" />
+                  </image>
+               </ImageView>
+            </graphic>
+            <tooltip>
+               <Tooltip text="Exit" />
+            </tooltip>
+         </Button>
+      </children>
+    </Pane>
+</AnchorPane>
