@@ -27,6 +27,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class HangManGUIController implements Initializable {
 
@@ -40,7 +41,9 @@ public class HangManGUIController implements Initializable {
     private TextField txtEntered;
     @FXML
     private Canvas canvas;
-
+    @FXML
+    private Button suggestButton;
+    private int buttonPressCount = 0;
     private GraphicsContext gc;
     private HangManController gameController;
 
@@ -104,8 +107,7 @@ public class HangManGUIController implements Initializable {
     }
 
     @FXML
-    private void handleNewGame(final ActionEvent event)
-    {
+    private void handleNewGame(final ActionEvent event) {
         resetGame();
     }
 
@@ -123,6 +125,26 @@ public class HangManGUIController implements Initializable {
         }
     }
 
+    @FXML
+    public void setSuggestButton(ActionEvent event) {
+        buttonPressCount++;
+        if (buttonPressCount > 1) {
+            ((Node) event.getSource()).setDisable(true);
+        }
+        txtInput.setText(gameController.suggestChar());
+        txtInput.textProperty().addListener((observable, oldValue, newValue) -> {
+            if ("".equalsIgnoreCase(newValue)) {
+                return;
+            }
+            char ch = newValue.charAt(0);
+            txtInput.clear();
+            updateEnteredChars();
+            updateWord();
+            checkGameOver();
+        });
+        updateWord();
+    }
+
     private void disableGame() {
         txtInput.setDisable(true);
     }
@@ -131,7 +153,9 @@ public class HangManGUIController implements Initializable {
         gameController.reset();
         txtEntered.clear();
         txtInput.setDisable(false);
-        gc.clearRect(0,0, canvas.getWidth(), canvas.getHeight());
+        gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
+        suggestButton.setDisable(false);
+        buttonPressCount = 0;
         updateWord();
     }
 
@@ -193,24 +217,24 @@ public class HangManGUIController implements Initializable {
 
     private void drawArms() {
         gc.beginPath();
-        gc.moveTo(120,140);
-        gc.lineTo(180,140);
+        gc.moveTo(120, 140);
+        gc.lineTo(180, 140);
         gc.stroke();
     }
 
     private void drawLegs() {
         gc.beginPath();
-        gc.moveTo(150,180);
+        gc.moveTo(150, 180);
         gc.lineTo(120, 220);
-        gc.moveTo(150,180);
+        gc.moveTo(150, 180);
         gc.lineTo(180, 220);
         gc.stroke();
     }
 
     private void drawBody() {
         gc.beginPath();
-        gc.moveTo(150,110);
-        gc.lineTo(150,180);
+        gc.moveTo(150, 110);
+        gc.lineTo(150, 180);
         gc.stroke();
     }
 
@@ -230,10 +254,10 @@ public class HangManGUIController implements Initializable {
 
     private void drawVerticalGallows() {
         gc.beginPath();
-        gc.moveTo(30,30);
+        gc.moveTo(30, 30);
         gc.lineTo(30, 300);
         gc.moveTo(0, 300);
-        gc.lineTo(60,300);
+        gc.lineTo(60, 300);
         gc.stroke();
     }
 

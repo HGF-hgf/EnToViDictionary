@@ -27,7 +27,7 @@
         </children>
     </HBox>
 
-    <Canvas fx:id="canvas" height="399.0" layoutY="80.0" width="500.0" />
+    <Canvas fx:id="canvas" height="399.0" layoutY="80.0" width="441.0" />
    <Pane prefHeight="40.0" prefWidth="502.0" styleClass="container-dropshadow" stylesheets="@../style.css">
       <children>
           <Button layoutX="113.0" layoutY="8.0" onAction="#handleNewGame" styleClass="container-dropshadow" stylesheets="@../style.css" text="New Game" />
@@ -42,5 +42,14 @@
          </Button>
       </children>
    </Pane>
+   <Button fx:id="suggestButton" layoutX="447.0" layoutY="80.0" mnemonicParsing="false" onAction="#setSuggestButton" prefHeight="45.0" prefWidth="45.0" styleClass="menu-item" stylesheets="@../style.css">
+      <graphic>
+         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../icons/bulb.png" />
+            </image>
+         </ImageView>
+      </graphic>
+   </Button>
 
 </AnchorPane>

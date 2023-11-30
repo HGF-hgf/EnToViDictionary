@@ -103,4 +103,23 @@ class HangManController {
 
         return true;
     }
+
+    public String suggestChar() {
+        ArrayList<Character> availableChars = new ArrayList<>();
+        for (int i = 0; i < rndWord.length(); i++) {
+            if (enteredChars.contains(rndWord.charAt(i))) {
+                continue;
+            }
+            availableChars.add(rndWord.charAt(i));
+        }
+        if (availableChars.isEmpty()) {
+            return null;
+        }
+        int randomIndex = (int) (Math.random() * availableChars.size());
+        char selectedChar = availableChars.remove(randomIndex);
+
+        System.out.println(selectedChar);
+        return String.valueOf(selectedChar);
+    }
+
 }
