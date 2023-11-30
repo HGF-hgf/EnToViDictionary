@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="406.0" prefWidth="617.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.ui.MultipleChoiceHelper">
+   <children>
+      <Pane layoutX="42.0" layoutY="140.0" prefHeight="190.0" prefWidth="530.0" styleClass="container-dropshadow" stylesheets="@../style.css">
+         <children>
+            <Text layoutX="14.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trò chơi chọn từ tiếng Anh từ nghĩa tiếng Việt là thách thức tuyệt vời, giúp cải thiện từ vựng và kỹ năng ngôn ngữ hiệu quả." textAlignment="JUSTIFY" wrappingWidth="307.73675537109375">
+               <font>
+                  <Font name="Google Sans Regular" size="12.0" />
+               </font>
+            </Text>
+            <Text layoutX="14.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trò chơi bắt đầu bằng việc hiển thị từ tiếng Việt, người chơi phải chọn từ tiếng Anh tương đương trong 4 lựa chọn được đưa ra. Có tất cả 5 câu hỏi, và bạn sẽ thua nếu trả lời sai cả 5. Chúc may mắn!" textAlignment="JUSTIFY" wrappingWidth="307.73675537109375">
+               <font>
+                  <Font name="Google Sans Regular" size="12.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="150.0" fitWidth="162.0" layoutX="354.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/multiplechoices.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Text layoutX="42.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Multiple Choice Questions" wrappingWidth="271.7366943359375">
+         <font>
+            <Font name="Google Sans Bold" size="22.0" />
+         </font>
+      </Text>
+      <Button fx:id="returnBtn" layoutX="35.0" layoutY="36.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="98.0" styleClass="container" stylesheets="@../style.css" text="Quay lại" textFill="#2a4878">
+         <font>
+            <Font name="Google Sans Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="18.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/keyboard_arrow_left_FILL0_wght400_GRAD0_opsz24.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="confirmBtn" layoutX="474.0" layoutY="355.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="83.0" styleClass="add-button" stylesheets="@../style.css" text="Chơi thôi!" />
+   </children>
+</AnchorPane>

@@ -132,6 +132,18 @@
                   <Tooltip text="Exit" />
                </tooltip>
             </Button>
+            <Button fx:id="gameButton" layoutX="8.0" layoutY="209.0" mnemonicParsing="false" onAction="#setGameButton" prefHeight="45.0" prefWidth="45.0" styleClass="menu-item" stylesheets="@../style.css" textFill="WHITE">
+               <tooltip>
+                  <Tooltip text="Game" />
+               </tooltip>
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/game-console.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
       </Pane>
    </children>

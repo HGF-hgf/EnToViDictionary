@@ -1,0 +1,74 @@
+Apple	Quả táo
+Ball	Bóng
+Beach	Bãi biển
+Bed	Giường
+Bicycle	Xe đạp
+Bird	Chim
+Boat	Thuyền
+Book	Sách
+Bottle	Chai
+Bridge	Cầu
+Butterfly	Bướm
+Car	Xe ô tô
+Cat	Mèo
+Chair	Ghế
+Cloud	Đám mây
+Coffee	Cà phê
+Computer	Máy tính
+Cup	Cốc
+Desk	Bàn làm việc
+Dog	Chó
+Door	Cửa
+Elephant	Voi
+Fish	Cá
+Flag	Cờ
+Flower	Hoa
+Food	Thức ăn
+Guitar	Đàn guitar
+Hat	Mũ
+Headphones	Tai nghe
+House	Nhà
+Ice cream	Kem
+Island	Hòn đảo
+Key	Chìa khóa
+Lamp	Đèn
+Laptop	Laptop
+Moon	Mặt trăng
+Mountain	Núi
+Movie	Phim
+Music	Nhạc
+Orange	Quả cam
+Painting	Bức tranh
+Paper	Giấy
+Pen	Bút
+Phone	Điện thoại
+Pizza	Bánh pizza
+Rainbow	Cầu vồng
+Rain	Mưa
+River	Sông
+Robot	Robot
+Rock	Đá
+Rose	Hoa hồng
+Sandwich	Bánh sandwich
+Sea	Biển
+Shoes	Giày
+Sky	Bầu trời
+Snow	Tuyết
+Star	Ngôi sao
+Sun	Mặt trời
+Surfing	Lướt sóng
+Table	Bàn
+Tea	Trà
+Tiger	Hổ
+Train	Tàu hỏa
+Tree	Cây
+Umbrella	Dù
+Unicorn	Kỳ lân
+Water	Nước
+Wave	Sóng
+Wind	Gió
+Wine	Rượu vang
+Winter	Mùa đông
+Writing	Viết
+Yoga	Yoga
+Zebra	Ngựa vằn

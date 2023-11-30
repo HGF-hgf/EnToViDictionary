@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="acPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.ui.HangManGUIController">
+
+    <HBox alignment="CENTER_LEFT" layoutY="40.0">
+        <children>
+            <Label alignment="BOTTOM_LEFT" style="-fx-padding: 10px;" text="Entered:" />
+            <TextField fx:id="txtEntered" disable="true" />
+            <TextField fx:id="txtInput" disable="true" />
+            <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-padding: 10px;" text="New character:" textOverrun="CLIP">
+                <font>
+                    <Font size="13.0" />
+                </font>
+            </Label>
+
+        </children>
+    </HBox>
+
+    <Canvas fx:id="canvas" height="399.0" layoutY="80.0" width="500.0" />
+   <Pane prefHeight="40.0" prefWidth="502.0" styleClass="container-dropshadow" stylesheets="@../style.css">
+      <children>
+          <Button layoutX="113.0" layoutY="8.0" onAction="#handleNewGame" styleClass="container-dropshadow" stylesheets="@../style.css" text="New Game" />
+         <Button fx:id="returnBtn" layoutX="14.0" layoutY="6.0" mnemonicParsing="false" onAction="#setReturnButton" prefHeight="25.0" prefWidth="74.0" styleClass="container-dropshadow" stylesheets="@../style.css" text="Back">
+            <graphic>
+               <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../icons/keyboard_arrow_left_FILL0_wght400_GRAD0_opsz24.png" />
+                  </image>
+               </ImageView>
+            </graphic>
+         </Button>
+      </children>
+   </Pane>
+
+</AnchorPane>

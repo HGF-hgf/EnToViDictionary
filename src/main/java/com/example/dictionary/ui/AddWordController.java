@@ -25,6 +25,7 @@ public class AddWordController {
     @FXML private Button browseButton;
     @FXML private Button saveButton;
     @FXML private Button searchButton;
+    @FXML private Button gameButton;
     @FXML private Button exitButton;
     @FXML private Button translateButton;
     @FXML private HTMLEditor htmlEditor;
@@ -39,28 +40,6 @@ public class AddWordController {
 
     @FXML
     public void setSaveButton(ActionEvent event){
-//        String word = wordTextField.getText();
-//        byte[] meaning = htmlEditor.getHtmlText().getBytes(StandardCharsets.ISO_8859_1);
-//        String meaningString = new String(meaning, StandardCharsets.UTF_8);
-//        meaningString = meaningString.replace("<html dir=\"ltr\"><head></head><body contenteditable=\"true\">", "");
-//        meaningString = meaningString.replace("</body></html>", "");
-//        if (dictionary.insert(word, meaningString)) {
-//            showSuccessAlert();
-//            wordTextField.setText("");
-//            htmlEditor.setHtmlText("");
-//        } else {
-//            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-//            alert.setTitle("Error");
-//            alert.setHeaderText("Word already exists");
-//            alert.setResizable(false);
-//            alert.setContentText("Do you want continue adding word?");
-//            Optional<ButtonType> result = alert.showAndWait();
-//            ButtonType buttonType = result.orElse(ButtonType.CANCEL);
-//            if (buttonType == ButtonType.OK){
-//                wordTextField.setText("");
-//                htmlEditor.setHtmlText("");
-//            }
-//        }
         Alert alertConfirmation = alerts.alertConfirmation("Add word" ,
                 "Bạn chắc chắn muốn thêm từ này?");
         Optional<ButtonType> option = alertConfirmation.showAndWait();
@@ -133,6 +112,20 @@ public class AddWordController {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root, 850, 550);
             stage.setTitle("Dictionary");
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void setGameButton(ActionEvent event){
+        try {
+            Parent root = FXMLLoader.load(Objects.requireNonNull(Application.class.getResource("fxml/GamePage.fxml")));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root, 616, 397);
+            stage.setTitle("Game");
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {

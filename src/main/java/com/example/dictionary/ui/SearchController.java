@@ -48,6 +48,8 @@ public class SearchController {
     @FXML
     private Button addWordButton;
     @FXML
+    private Button gameButton;
+    @FXML
     private Button deleteWordButton;
     @FXML
     private Button editWordButton;
@@ -290,6 +292,20 @@ public class SearchController {
             popup.show();
             popup.setResizable(false);
             latestWord = "";
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void setGameButton(ActionEvent event){
+        try {
+            Parent root = FXMLLoader.load(Objects.requireNonNull(Application.class.getResource("fxml/GamePage.fxml")));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root, 616, 397);
+            stage.setTitle("Game");
+            stage.setScene(scene);
+            stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
