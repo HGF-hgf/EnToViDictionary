@@ -1,6 +1,6 @@
 Apple	Quả táo
 Ball	Bóng
-Beach   Bãi biển
+Beach	Bãi biển
 Bed	Giường
 Bicycle	Xe đạp
 Bird	Chim

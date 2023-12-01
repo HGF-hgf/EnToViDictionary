@@ -151,6 +151,9 @@ public class MultipleChoiceController implements Initializable {
         } else {
             questionLabel.setText("Game Over. Your score: " + score);
             scoreLabel.setVisible(false);
+            if (score == 5) {
+                questionLabel.setText("Perfect! Your score: " + score);
+            }
             disableButtons();
         }
 
