@@ -25,14 +25,14 @@ and Google Translate API
 
 ## Preview
 
-![Search for a word](https://github.com/HGF-hgf/EnToViDictionary/blob/master/src/main/resources/
-com/example/dictionary/images/search.png)
+![Search for a word](https://github.com/HGF-hgf/EnToViDictionary/blob/master/src/main/resources/com/example/dictionary/images/search.png)
 
-![Add a new word]
+![Add a new word](https://github.com/HGF-hgf/EnToViDictionary/blob/master/src/main/resources/com/example/dictionary/images/add.png)
 
-![Google Translate]
+![Google Translate](https://github.com/HGF-hgf/EnToViDictionary/blob/master/src/main/resources/com/example/dictionary/images/api.png)
 
-![Games]
+![Games](https://github.com/HGF-hgf/EnToViDictionary/blob/master/src/main/resources/com/example/dictionary/images/game.png)
+
 ## Installation
 
 1. Clone the repo
