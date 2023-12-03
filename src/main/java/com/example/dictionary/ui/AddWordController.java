@@ -15,6 +15,7 @@ import javafx.scene.web.HTMLEditor;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -44,8 +45,13 @@ public class AddWordController {
                 "Bạn chắc chắn muốn thêm từ này?");
         Optional<ButtonType> option = alertConfirmation.showAndWait();
         // get data from input
-        String target = wordTextField.getText().trim();
-        String meaning = htmlEditor.getHtmlText().trim();
+        String target = wordTextField.getText();
+        byte[] pText = htmlEditor.getHtmlText().getBytes(StandardCharsets.ISO_8859_1);
+        String meaning = new String(pText, StandardCharsets.UTF_8);
+        meaning =
+                meaning.replace(
+                        "<html dir=\"ltr\"><head></head><body contenteditable=\"true\">", "");
+        meaning = meaning.replace("</body></html>", "");
 
         if (option.get() == ButtonType.OK) {
             Words word = new Words(target, meaning);

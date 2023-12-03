@@ -9,6 +9,7 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
 public class Translator {
+
     public static String translateEnToVi(String text) {
         try {
             String langFrom = "en";
@@ -31,7 +32,17 @@ public class Translator {
         return "Error";
     }
 
-
+    /**
+     * Translate text from `langFrom` to `langTo`.
+     *
+     * <p><a
+     * href="https://stackoverflow.com/questions/8147284/how-to-use-google-translate-api-in-my-java-application">Reference</a>
+     *
+     * @param langFrom the input language (2 letters (ex: 'en'))
+     * @param langTo the output language (2 letters (ex: 'vi'))
+     * @param text the text to be translated
+     * @return the translation text in `langTo`
+     */
 
     private static String translate(String langFrom, String langTo, String text) throws IOException {
         // INSERT YOU URL HERE
