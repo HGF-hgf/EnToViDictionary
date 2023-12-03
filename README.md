@@ -1,6 +1,14 @@
 # English-Vietnamese-Dictionary
 A dictionary for English-Vietnamese translation written in Java
 
+## Table of Contents
+- [Authors](#authors)
+- [Features](#features)
+- [Preview](#preview)
+- [Installation](#installation)
+- [Requirements](#requirements)
+- [Project Structure](#project-structure)
+
 ## Authors
 - [Nguyễn Viết Hoàng](https://github.com/HGF-hgf) - 22028122
 - [Lê Thế Phương Minh](https://github.com/evergard3n) - 22028089
