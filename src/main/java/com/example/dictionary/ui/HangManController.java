@@ -118,7 +118,6 @@ class HangManController {
         int randomIndex = (int) (Math.random() * availableChars.size());
         char selectedChar = availableChars.remove(randomIndex);
 
-        System.out.println(selectedChar);
         return String.valueOf(selectedChar);
     }
 

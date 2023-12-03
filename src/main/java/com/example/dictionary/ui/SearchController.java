@@ -56,11 +56,10 @@ public class SearchController {
     @FXML
     private Button translateButton;
     @FXML
-    private Button toggleModeButton;
-    @FXML
     private Button textToSpeechButton;
     @FXML
     private Button exitButton;
+
 
     public SearchController() {
     }
@@ -93,7 +92,7 @@ public class SearchController {
 
     public void takeSearchList() {
         listView.getItems().clear();
-
+        takeHistoryIcon();
         String word = searchField.getText();
         ArrayList<String> searchedWords = Trie.search(word);
         ArrayList<String> history = History.getHistory();
@@ -228,7 +227,7 @@ public class SearchController {
         if (searchField.getText().isEmpty()) {
             TextToSpeech.soundEnToVi("Please enter a word");
         } else {
-            if (!meaning.equals("No word found")) {
+            if (!meaning.equals("<h1 style=\"text-align: center;\">No word found</h1>")) {
                 TextToSpeech.soundEnToVi(searchField.getText());
             } else {
                 TextToSpeech.soundEnToVi("No word found");
@@ -266,17 +265,23 @@ public class SearchController {
 
     @FXML
     public void setDeleteWordButton(ActionEvent event) {
-        Alert alertWarning = alerts.alertWarning("Delete", "Bạn chắc chắn muốn xóa từ này?");
-        // option != null.
-        alertWarning.getButtonTypes().add(ButtonType.CANCEL);
-        Optional<ButtonType> option = alertWarning.showAndWait();
-        if (option.get() == ButtonType.OK) {
-            // delete selected word from dictionary
-            dictionary.delete(latestWord);
-            // succeed
-            alerts.showAlertInfo("Information", "Xóa thành công");
+        if (latestWord.isEmpty()) {
+            alerts.showAlertInfo("Information", "Vui lòng chọn từ cần xóa");
+        } else if (dictionary.search(latestWord).equals("<h1 style=\"text-align: center;\">No word found</h1>")) {
+            alerts.showAlertInfo("Information", "Từ này không tồn tại");
         } else {
-            alerts.showAlertInfo("Information", "Thay đổi không được công nhận");
+            Alert alertWarning = alerts.alertWarning("Delete", "Bạn chắc chắn muốn xóa từ này?");
+            // option != null.
+            alertWarning.getButtonTypes().add(ButtonType.CANCEL);
+            Optional<ButtonType> option = alertWarning.showAndWait();
+            if (option.get() == ButtonType.OK) {
+                // delete selected word from dictionary
+                dictionary.delete(latestWord);
+                // succeed
+                alerts.showAlertInfo("Information", "Xóa thành công");
+            } else {
+                alerts.showAlertInfo("Information", "Thay đổi không được công nhận");
+            }
         }
     }
 
@@ -298,7 +303,7 @@ public class SearchController {
     }
 
     @FXML
-    public void setGameButton(ActionEvent event){
+    public void setGameButton(ActionEvent event) {
         try {
             Parent root = FXMLLoader.load(Objects.requireNonNull(Application.class.getResource("fxml/GamePage.fxml")));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
