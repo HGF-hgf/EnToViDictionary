@@ -55,14 +55,14 @@ public class AddWordController {
 
         if (option.get() == ButtonType.OK) {
             Words word = new Words(target, meaning);
-            String w = dictionary.search("target");
-            if (w.equals(target)) {
+            String w = dictionary.search(target);
+            if (!w.equals("<h1 style=\"text-align: center;\">No word found</h1>")) {
                 // find index of word in dictionary
 
                 // show confirmation alert
                 Alert selectionAlert = alerts.alertConfirmation("This word already exists" ,
                         "Từ này đã tồn tại.\n" +
-                                "Thay thế hoặc bổ sung nghĩa vừa nhập cho nghĩa cũ.");
+                                "Bạn có muốn thay thế nghĩa cũ bằng nghĩa mới không?");
                 // custom button
                 selectionAlert.getButtonTypes().clear();
                 ButtonType replaceBtn = new ButtonType("Thay thế");
@@ -71,7 +71,7 @@ public class AddWordController {
 
                 if(selection.get() == replaceBtn) {
                     // replace old meaning, replace this with sqlite later
-                    word.setMeaning(meaning);
+                    Application.dictionary.update(target, meaning);
                 }
                 if(selection.get() == ButtonType.CANCEL){
                     alerts.showAlertInfo("Information" , "Thay đổi không được công nhận.");
@@ -83,6 +83,7 @@ public class AddWordController {
             }
             // reset input
             saveButton.setDisable(true);
+            Dictionary.setTimeout(() -> saveButton.setDisable(false) , 1500);
             wordTextField.setText("");
             htmlEditor.setHtmlText("");
 

@@ -61,19 +61,6 @@ public class DatabaseConnection extends Dictionary {
 
     }
 
-    public ArrayList<Words> getWordsPartial(int start, int end) {
-        final String query = "SELECT * FROM dictionary WHERE id >= ? AND id <= ?";
-        try {
-            PreparedStatement ps = con.prepareStatement(query);
-            ps.setInt(1, start);
-            ps.setInt(2, end);
-            return getWordsFromDB(ps);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return new ArrayList<>();
-    }
-
     @Override
     public void initialize() throws SQLException {
         try {
