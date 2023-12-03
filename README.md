@@ -25,7 +25,8 @@ and Google Translate API
 
 ## Preview
 
-![Search for a word]
+![Search for a word](https://github.com/HGF-hgf/EnToViDictionary/blob/master/src/main/resources/
+com/example/dictionary/images/search.png)
 
 ![Add a new word]
 
