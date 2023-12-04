@@ -11,7 +11,7 @@ public class Trie {
         return searchedWords;
     }
 
-    // insert a word into the trie
+// insert a word into the trie
     public static void insert(String word) {
         // current node
         TrieNode current = root;

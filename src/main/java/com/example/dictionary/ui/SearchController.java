@@ -67,6 +67,7 @@ public class SearchController {
 
     @FXML
     public void initialize() {
+        // set the focus to the search field
         Platform.runLater(() -> searchField.requestFocus());
 
         takeHistoryIcon();
