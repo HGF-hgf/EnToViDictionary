@@ -4,16 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="411a0a16-a100-46ea-a142-bee7c3cbcca9" name="Changes" comment="fix bugs">
+    <list default="true" id="411a0a16-a100-46ea-a142-bee7c3cbcca9" name="Changes" comment="finish the dictionary">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dict_hh.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/dict_hh.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionary/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionary/api/TextToSpeech.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/api/TextToSpeech.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionary/core/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/core/DatabaseConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionary/core/DictionaryManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/core/DictionaryManagement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionary/core/Trie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/core/Trie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/SearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/SearchController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/UpdateWordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/UpdateWordController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +48,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "D:/java/dictionary/src/main/resources/com/example/dictionary/images/search.png"
+    "last_opened_file_path": "D:/java/dictionary/src/main/resources/com/example/dictionary/images/search.png",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -172,7 +166,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701623067188</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="finish the dictionary">
+      <option name="closed" value="true" />
+      <created>1701668428866</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1701668428866</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -194,6 +196,7 @@
     <MESSAGE value="update" />
     <MESSAGE value="update README.md" />
     <MESSAGE value="fix bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix bugs" />
+    <MESSAGE value="finish the dictionary" />
+    <option name="LAST_COMMIT_MESSAGE" value="finish the dictionary" />
   </component>
 </project>

@@ -108,9 +108,9 @@
                               <Image url="@../images/personTwo.jpg" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="81.0" fitWidth="172.0" layoutX="653.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="73.0" fitWidth="230.0" layoutX="548.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../images/logo.png" />
+                              <Image url="@../icons/logo.png" />
                            </image>
                         </ImageView>
                      </children>
