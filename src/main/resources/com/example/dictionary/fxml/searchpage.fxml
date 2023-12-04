@@ -16,12 +16,12 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="850.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.ui.SearchController">
     <Pane prefHeight="550.0" prefWidth="859.0" styleClass="root" stylesheets="@../style.css">
       <children>
-         <ImageView fitHeight="52.0" fitWidth="38.0" layoutX="11.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <ImageView fitHeight="33.0" fitWidth="31.0" layoutX="16.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
             <image>
                <Image url="@../icons/book.png" />
             </image>
          </ImageView>
-             <Button layoutX="7.0" layoutY="74.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" styleClass="menu-item" stylesheets="@../style.css" textFill="WHITE">
+             <Button layoutX="7.0" layoutY="128.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" styleClass="menu-item" stylesheets="@../style.css" textFill="WHITE">
             <tooltip>
                <Tooltip text="Tra từ điển" />
             </tooltip>
@@ -33,7 +33,7 @@
                </ImageView>
             </graphic>
          </Button>
-             <Button fx:id="translateButton" layoutX="7.0" layoutY="119.0" mnemonicParsing="false" onAction="#setTranslateButton" prefHeight="45.0" prefWidth="45.0" styleClass="menu-item" stylesheets="@../style.css" textFill="WHITE">
+             <Button fx:id="translateButton" layoutX="7.0" layoutY="202.0" mnemonicParsing="false" onAction="#setTranslateButton" prefHeight="45.0" prefWidth="45.0" styleClass="menu-item" stylesheets="@../style.css" textFill="WHITE">
             <tooltip>
                <Tooltip text="Phiên dịch" />
             </tooltip>
@@ -45,7 +45,7 @@
                </ImageView>
             </graphic>
          </Button>
-             <Button fx:id="addWordButton" layoutX="7.0" layoutY="164.0" mnemonicParsing="false" onAction="#setAddWordButton" prefHeight="45.0" prefWidth="45.0" styleClass="menu-item" stylesheets="@../style.css" textFill="WHITE">
+             <Button fx:id="addWordButton" layoutX="7.0" layoutY="282.0" mnemonicParsing="false" onAction="#setAddWordButton" prefHeight="45.0" prefWidth="45.0" styleClass="menu-item" stylesheets="@../style.css" textFill="WHITE">
             <tooltip>
                <Tooltip text="Thêm từ mới" />
             </tooltip>
@@ -59,7 +59,7 @@
          </Button>
          <Pane layoutX="65.0" prefHeight="550.0" prefWidth="792.0" style="-fx-background-color: #ffffff; -fx-border-radius: 10px; -fx-background-radius: 10px;" styleClass="search-box" stylesheets="@../style.css">
             <children>
-                    <TextField fx:id="searchField" layoutX="14.0" layoutY="63.0" onAction="#searchWord" onKeyPressed="#changeFocus" onKeyTyped="#takeSearchList" prefHeight="27.0" prefWidth="264.0" promptText="Search word" styleClass="search-box" stylesheets="@../style.css" />
+                    <TextField fx:id="searchField" layoutX="13.0" layoutY="50.0" onAction="#searchWord" onKeyPressed="#changeFocus" onKeyTyped="#takeSearchList" prefHeight="27.0" prefWidth="491.0" promptText="Search word" styleClass="search-box" stylesheets="@../style.css" />
                <ListView fx:id="listView" layoutX="14.0" layoutY="207.0" onKeyPressed="#selectEnter" onMouseClicked="#selectClick" prefHeight="327.0" prefWidth="264.0" styleClass="list-cell" stylesheets="@../style.css" />
                <Pane layoutX="12.0" layoutY="123.0" prefHeight="72.0" prefWidth="264.0" styleClass="title" stylesheets="@../style.css">
                   <children>
@@ -133,7 +133,7 @@
                <Tooltip text="Exit" />
             </tooltip>
          </Button>
-         <Button fx:id="gameButton" layoutX="8.0" layoutY="219.0" mnemonicParsing="false" onAction="#setGameButton" prefHeight="45.0" prefWidth="45.0" styleClass="menu-item" stylesheets="@../style.css" textFill="WHITE">
+         <Button fx:id="gameButton" layoutX="7.0" layoutY="362.0" mnemonicParsing="false" onAction="#setGameButton" prefHeight="45.0" prefWidth="45.0" styleClass="menu-item" stylesheets="@../style.css" textFill="WHITE">
             <tooltip>
                <Tooltip text="Game" />
             </tooltip>

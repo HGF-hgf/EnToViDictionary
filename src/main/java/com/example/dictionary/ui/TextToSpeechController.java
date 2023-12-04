@@ -99,14 +99,14 @@ public class TextToSpeechController {
             sourceText.setPromptText("Enter text");
             sourceLabel.setText("English");
             translatedLabel.setText("Tiếng Việt");
-            srcImg.setImage(new Image(Objects.requireNonNull(Application.class.getResourceAsStream("icons/icons8_great_britain_48px_1.png"))));
-            transImg.setImage(new Image(Objects.requireNonNull(Application.class.getResourceAsStream("icons/icons8_vietnam_48px.png"))));
+            //srcImg.setImage(new Image(Objects.requireNonNull(Application.class.getResourceAsStream("icons/icons8_great_britain_48px_1.png"))));
+            //transImg.setImage(new Image(Objects.requireNonNull(Application.class.getResourceAsStream("icons/icons8_vietnam_48px.png"))));
         } else {
             sourceText.setPromptText("Nhập văn bản");
             sourceLabel.setText("Tiếng Việt");
             translatedLabel.setText("English");
-            srcImg.setImage(new Image(Objects.requireNonNull(Application.class.getResourceAsStream("icons/icons8_vietnam_48px.png"))));
-            transImg.setImage(new Image(Objects.requireNonNull(Application.class.getResourceAsStream("icons/icons8_great_britain_48px_1.png"))));
+            //srcImg.setImage(new Image(Objects.requireNonNull(Application.class.getResourceAsStream("icons/icons8_vietnam_48px.png"))));
+            //transImg.setImage(new Image(Objects.requireNonNull(Application.class.getResourceAsStream("icons/icons8_great_britain_48px_1.png"))));
         }
     }
     @FXML

@@ -9,57 +9,56 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="850.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.ui.TextToSpeechController">
    <children>
-      <Pane prefHeight="550.0" prefWidth="859.0" style="-fx-background-color: #9f45b0;" styleClass="root" stylesheets="@../style.css">
+      <Pane prefHeight="550.0" prefWidth="859.0" styleClass="root" stylesheets="@../style.css">
          <children>
-            <ImageView fitHeight="52.0" fitWidth="38.0" layoutX="11.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="33.0" fitWidth="31.0" layoutX="18.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../icons/book.png" />
                </image>
             </ImageView>
             <Pane layoutX="65.0" prefHeight="550.0" prefWidth="792.0" style="-fx-background-color: #ffffff; -fx-border-radius: 10px; -fx-background-radius: 10px;" styleClass="search-box" stylesheets="@../style.css">
                <children>
-                  <Pane layoutX="68.0" layoutY="183.0" prefHeight="338.0" prefWidth="673.0" styleClass="header-translate" stylesheets="@../style.css">
+                  <Pane prefHeight="50.0" prefWidth="280.0" styleClass="container" stylesheets="@../style.css" />
+                  <Pane layoutX="65.0" layoutY="148.0" prefHeight="348.0" prefWidth="674.0" stylesheets="@../style.css">
                      <children>
-                        <TextArea fx:id="sourceText" layoutY="64.0" prefHeight="230.0" prefWidth="335.0" promptText="Enter text" styleClass="src-speech-field" stylesheets="@../style.css" />
-                        <TextArea fx:id="translatedText" layoutX="332.0" layoutY="64.0" prefHeight="230.0" prefWidth="341.0" styleClass="to-speech-field" stylesheets="@../style.css" />
-                        <Label fx:id="sourceLabel" layoutX="66.0" layoutY="18.0" prefHeight="37.0" prefWidth="138.0" stylesheets="@../style.css" text="English" textFill="#9f45b0">
+                        <TextArea fx:id="sourceText" layoutX="-2.0" layoutY="64.0" prefHeight="230.0" prefWidth="331.0" promptText="Enter text" style="-fx-border-radius: 10; -fx-background-radius: 10;" stylesheets="@../style.css">
                            <font>
-                              <Font name="System Bold" size="16.0" />
-                           </font>
-                           <graphic>
-                              <ImageView fx:id="srcImg" fitHeight="30.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../icons/icons8_great_britain_48px_1.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Label>
-                        <Label fx:id="translatedLabel" layoutX="460.0" layoutY="17.0" prefHeight="33.0" prefWidth="132.0" text="Tiếng Việt" textFill="#9f45b0">
-                           <font>
-                              <Font name="System Bold" size="16.0" />
-                           </font>
-                           <graphic>
-                              <ImageView fx:id="transImg" fitHeight="30.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../icons/icons8_vietnam_48px.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Label>
-                        <Button fx:id="translateButton" layoutX="282.0" layoutY="303.0" mnemonicParsing="false" onAction="#translate" prefHeight="33.0" prefWidth="70.0" styleClass="trans-button" stylesheets="@../style.css" text="Dịch" />
+                              <Font name="Google Sans Regular" size="21.0" />
+                           </font></TextArea>
+                        <TextArea fx:id="translatedText" layoutX="334.0" layoutY="64.0" prefHeight="230.0" prefWidth="331.0" style="-fx-background-color: #272727;" styleClass="target-translate" stylesheets="@../style.css" />
+                        <Pane layoutX="-2.0" layoutY="11.0" prefHeight="45.0" prefWidth="309.0" styleClass="header-translate" stylesheets="@../style.css">
+                           <children>
+                              <Label fx:id="sourceLabel" layoutX="107.0" layoutY="4.0" prefHeight="37.0" prefWidth="138.0" stylesheets="@../style.css" text="English" textFill="#272727">
+                                 <font>
+                                    <Font name="Google Sans Regular" size="17.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <Pane layoutX="353.0" layoutY="11.0" prefHeight="45.0" prefWidth="309.0" styleClass="header-translate" stylesheets="@../style.css">
+                           <children>
+                              <Label fx:id="translatedLabel" layoutX="112.0" layoutY="6.0" prefHeight="33.0" prefWidth="132.0" text="Tiếng Việt">
+                                 <font>
+                                    <Font name="Google Sans Regular" size="16.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <Button fx:id="translateButton" layoutX="-2.0" layoutY="304.0" mnemonicParsing="false" onAction="#translate" prefHeight="33.0" prefWidth="70.0" styleClass="add-button" stylesheets="@../style.css" text="Dịch" />
                         <Button fx:id="switchLanguageButton" layoutX="297.0" layoutY="11.0" mnemonicParsing="false" onAction="#switchLanguage" prefHeight="50.0" prefWidth="64.0" styleClass="switch-button" stylesheets="@../style.css">
                            <graphic>
-                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../icons/icons8_data_transfer_48px.png" />
+                                    <Image url="@../icon/swap.png" />
                                  </image>
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button fx:id="textToSpeechsource" layoutX="204.0" layoutY="20.0" mnemonicParsing="false" onAction="#textToSpeechsource" prefHeight="33.0" prefWidth="33.0" style="-fx-background-color: #ffffff;">
+                        <Button fx:id="textToSpeechButton" layoutX="341.0" layoutY="250.0" mnemonicParsing="false" onAction="#textToSpeech" prefHeight="33.0" prefWidth="33.0" style="-fx-background-color: #ffffff;">
                            <graphic>
                               <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -68,7 +67,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button fx:id="textToSpeechButton" layoutX="592.0" layoutY="17.0" mnemonicParsing="false" onAction="#textToSpeech" prefHeight="33.0" prefWidth="33.0" style="-fx-background-color: #ffffff;">
+                        <Button fx:id="textToSpeechsource" layoutX="7.0" layoutY="250.0" mnemonicParsing="false" onAction="#textToSpeechsource" prefHeight="33.0" prefWidth="33.0" style="-fx-background-color: #ffffff;">
                            <graphic>
                               <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -79,38 +78,22 @@
                         </Button>
                      </children>
                   </Pane>
-                  <Pane layoutY="102.0" prefHeight="45.0" prefWidth="792.0" styleClass="title" stylesheets="@../style.css">
-                     <children>
-                        <Label layoutX="20.0" prefHeight="45.0" prefWidth="391.0" text="Phiên dịch " textFill="#c67abb">
-                           <font>
-                              <Font name="System Bold Italic" size="18.0" />
-                           </font>
-                           <graphic>
-                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../icons/icons8_google_translate_64px.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Label>
-                     </children>
-                  </Pane>
-                  <Pane layoutY="11.0" prefHeight="91.0" prefWidth="792.0" styleClass="header" stylesheets="@../style.css">
+                  <Pane prefHeight="137.0" prefWidth="792.0" styleClass="header" stylesheets="@../style.css">
                      <children>
                         <Pane layoutX="240.0" layoutY="20.0" />
-                        <ImageView fitHeight="83.0" fitWidth="55.0" layoutX="175.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/personOne.jpg" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="81.0" fitWidth="46.0" layoutX="284.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/personTwo.jpg" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="73.0" fitWidth="230.0" layoutX="548.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="73.0" fitWidth="230.0" layoutX="548.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../icons/logo.png" />
+                           </image>
+                        </ImageView>
+                        <Text fill="#2a4878" layoutX="133.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Translation" wrappingWidth="191.33746337890625">
+                           <font>
+                              <Font name="Google Sans Bold" size="32.0" />
+                           </font>
+                        </Text>
+                        <ImageView fitHeight="84.0" fitWidth="81.0" layoutX="52.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icon/translate-icon-light.png" />
                            </image>
                         </ImageView>
                      </children>
@@ -129,7 +112,7 @@
                   <Tooltip text="Exit" />
                </tooltip>
             </Button>
-            <Button layoutX="9.0" layoutY="120.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" styleClass="menu-item" stylesheets="@../style.css" textFill="WHITE">
+            <Button layoutX="7.0" layoutY="210.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" styleClass="menu-item" stylesheets="@../style.css" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -138,7 +121,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="searchButton" layoutX="9.0" layoutY="75.0" mnemonicParsing="false" onAction="#setSearchButton" prefHeight="45.0" prefWidth="45.0" styleClass="menu-item" stylesheets="@../style.css" textFill="WHITE">
+            <Button fx:id="searchButton" layoutX="9.0" layoutY="132.0" mnemonicParsing="false" onAction="#setSearchButton" prefHeight="45.0" prefWidth="45.0" styleClass="menu-item" stylesheets="@../style.css" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -147,7 +130,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="gameButton" layoutX="8.0" layoutY="216.0" mnemonicParsing="false" onAction="#setGameButton" prefHeight="45.0" prefWidth="45.0" styleClass="menu-item" stylesheets="@../style.css" textFill="WHITE">
+            <Button fx:id="gameButton" layoutX="7.0" layoutY="367.0" mnemonicParsing="false" onAction="#setGameButton" prefHeight="45.0" prefWidth="45.0" styleClass="menu-item" stylesheets="@../style.css" textFill="WHITE">
                <tooltip>
                   <Tooltip text="Game" />
                </tooltip>
@@ -159,16 +142,16 @@
                   </ImageView>
                </graphic>
             </Button>
+            <Button fx:id="addWordButton" layoutX="9.0" layoutY="290.0" mnemonicParsing="false" onAction="#setAddWordButton" prefHeight="45.0" prefWidth="45.0" styleClass="menu-item" stylesheets="@../style.css" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/icons8_add_32px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
       </Pane>
-      <Button fx:id="addWordButton" layoutX="7.0" layoutY="164.0" mnemonicParsing="false" onAction="#setAddWordButton" prefHeight="45.0" prefWidth="45.0" styleClass="menu-item" stylesheets="@../style.css" textFill="WHITE">
-         <graphic>
-            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../icons/icons8_add_32px.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
    </children>
 </AnchorPane>
