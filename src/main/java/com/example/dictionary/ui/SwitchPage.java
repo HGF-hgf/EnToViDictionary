@@ -15,6 +15,12 @@ import java.util.Objects;
 
 public class SwitchPage {
 
+    /**
+     * This method is called when the 'Search' button is clicked in the GUI.
+     * It loads a new scene from the 'searchpage.fxml' file and sets it on the current stage.
+     *
+     * @param event The ActionEvent object representing the button click event.
+     */
     @FXML
     public void setSearchButton(ActionEvent event) {
         try {
@@ -29,6 +35,12 @@ public class SwitchPage {
         }
     }
 
+    /**
+     * This method is called when the 'Translate' button is clicked in the GUI.
+     * It loads a new scene from the 'GGTranslate.fxml' file and sets it on the current stage.
+     *
+     * @param event The ActionEvent object representing the button click event.
+     */
     @FXML
     public void setTranslateButton(ActionEvent event) {
         try {
@@ -43,6 +55,12 @@ public class SwitchPage {
         }
     }
 
+    /**
+     * This method is called when the 'Add Word' button is clicked in the GUI.
+     * It loads a new scene from the 'AddWord.fxml' file and sets it on the current stage.
+     *
+     * @param event The ActionEvent object representing the button click event.
+     */
     @FXML
     public void setAddWordButton(ActionEvent event) {
         try {
@@ -57,6 +75,12 @@ public class SwitchPage {
         }
     }
 
+    /**
+     * This method is called when the 'Game' button is clicked in the GUI.
+     * It loads a new scene from the 'GamePage.fxml' file and sets it on the current stage.
+     *
+     * @param event The ActionEvent object representing the button click event.
+     */
     @FXML
     public void setGameButton(ActionEvent event){
         try {
@@ -71,6 +95,12 @@ public class SwitchPage {
         }
     }
 
+    /**
+     * This method is called when the 'Exit' button is clicked in the GUI.
+     * It exits the platform and then exits the system.
+     *
+     * @param event The ActionEvent object representing the button click event.
+     */
     @FXML
     public void setExitButton(ActionEvent event) {
         Platform.exit();
