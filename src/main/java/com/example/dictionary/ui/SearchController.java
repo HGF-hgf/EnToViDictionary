@@ -32,7 +32,7 @@ import javafx.scene.Node;
 import static com.example.dictionary.Application.dictionary;
 
 
-public class SearchController {
+public class SearchController extends SwitchPage {
     Alerts alerts = new Alerts();
     private String latestWord = "";
     @FXML
@@ -61,20 +61,27 @@ public class SearchController {
     private Button exitButton;
 
 
-    public SearchController() {
-    }
+    public SearchController() {}
 
-
+    /**
+     * This method is called to initialize a controller after its root element has been completely processed.
+     * It sets the focus to the 'searchField' and calls the 'takeSearchList' method.
+     */
     @FXML
     public void initialize() {
         // set the focus to the search field
         Platform.runLater(() -> searchField.requestFocus());
 
-        takeHistoryIcon();
         takeSearchList();
     }
 
-
+    /**
+     * This method is called when a key is pressed in the GUI.
+     * If the pressed key is the down arrow key, it changes the focus to the 'listView'.
+     * If the 'listView' is not empty, it selects the first item.
+     *
+     * @param key The KeyEvent object representing the key press event.
+     */
     @FXML
     public void changeFocus(KeyEvent key) {
         // if the user presses the down arrow key, change the focus to the list view
@@ -91,6 +98,11 @@ public class SearchController {
         historyIcon = new Image(Objects.requireNonNull(Application.class.getResourceAsStream("icon/history-icon-light.png")));
     }
 
+    /**
+     * This method is called when the user types in the search field.
+     * It clears the 'listView' and adds the searched words to it.
+     * It also sets the 'latestWord' variable to the searched word.
+     */
     public void takeSearchList() {
         listView.getItems().clear();
         takeHistoryIcon();
@@ -143,26 +155,13 @@ public class SearchController {
         );
     }
 
+    /**
+     * This method is called when the user searches for a word.
+     * It searches the word in the dictionary and displays the meaning in the 'webView'.
+     * It also adds the searched word to the history.
+     */
     @FXML
     public void searchWord() {
-        searchField.setOnKeyPressed(event -> {
-            if (event.getCode() == KeyCode.DOWN) {
-                listView.requestFocus();
-                if (!listView.getItems().isEmpty()) {
-                    listView.getSelectionModel().select(0);
-                }
-            }
-            if (event.getCode() == KeyCode.ENTER) {
-                String word = searchField.getText();
-                if (word.charAt(0) == '*') {
-                    searchField.setText(word.substring(1));
-                } else {
-                    searchField.setText(word);
-                }
-                searchWord();
-            }
-        });
-
         String word = searchField.getText();
         if (word.startsWith("*")) {
             word = word.substring(1);
@@ -184,6 +183,14 @@ public class SearchController {
         }
     }
 
+    /**
+     * This method is called when the user presses a key in the 'listView'.
+     * If the pressed key is the enter key, it searches the selected word.
+     * If the pressed key is the up arrow key and the selected index is 0, it changes the focus to the 'searchField'.
+     * It also updates the 'lastSelectedIndex' variable.
+     *
+     * @param key The KeyEvent object representing the key press event.
+     */
     @FXML
     public void selectEnter(KeyEvent key) {
         // if the list view is empty, return
@@ -209,19 +216,32 @@ public class SearchController {
 
     }
 
+    /**
+     * This method is called when the user clicks on an item in the 'listView'.
+     * If the clicked item starts with a '*', it sets the 'searchField' to the word without the '*' and searches it.
+     * If the clicked item does not start with a '*', it sets the 'searchField' to the word and searches it.
+     *
+     * @param event The MouseEvent object representing the mouse click event.
+     */
     @FXML
     public void selectClick(MouseEvent event) {
         if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 1) {
             String word = listView.getSelectionModel().getSelectedItem();
             if (word.startsWith("*")) {
                 searchField.setText(word.substring(1));
+
             } else {
                 searchField.setText(word);
             }
             searchWord();
+
         }
     }
 
+    /**
+     * This method is called when the user clicks on the 'textToSpeechButton'.
+     * It reads the searched word.
+     */
     @FXML
     public void setTextToSpeechButton() {
         String meaning = dictionary.search(searchField.getText());
@@ -236,34 +256,16 @@ public class SearchController {
         }
     }
 
-    @FXML
-    public void setTranslateButton(ActionEvent event) {
-        try {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(Application.class.getResource("fxml/GGTranslate.fxml")));
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root, 850, 550);
-            stage.setTitle("Google Translate");
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
-    @FXML
-    public void setAddWordButton(ActionEvent event) {
-        try {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(Application.class.getResource("fxml/AddWord.fxml")));
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root, 850, 550);
-            stage.setTitle("Add Word");
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
+    /**
+     * This method is called when the 'Delete Word' button is clicked in the GUI.
+     * If no word is selected or the selected word does not exist in the dictionary, it shows an information alert.
+     * If a word is selected, and it exists in the dictionary, it shows a warning alert asking for confirmation to delete the word.
+     * If the user confirms, it deletes the word from the dictionary and shows a success alert.
+     * If the user cancels, it shows an information alert.
+     *
+     * @param event The ActionEvent object representing the button click event.
+     */
     @FXML
     public void setDeleteWordButton(ActionEvent event) {
         if (latestWord.isEmpty()) {
@@ -286,6 +288,13 @@ public class SearchController {
         }
     }
 
+    /**
+     * This method is called when the 'Edit Word' button is clicked in the GUI.
+     * If no word is selected or the selected word does not exist in the dictionary, it shows an information alert.
+     * If a word is selected, and it exists in the dictionary, it loads a new scene from the 'EditWord.fxml' file and sets it on a new stage.
+     *
+     * @param event The ActionEvent object representing the button click event.
+     */
     @FXML
     public void setEditWordButton(ActionEvent event) {
         try {
@@ -303,23 +312,4 @@ public class SearchController {
         }
     }
 
-    @FXML
-    public void setGameButton(ActionEvent event) {
-        try {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(Application.class.getResource("fxml/GamePage.fxml")));
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root, 616, 397);
-            stage.setTitle("Game");
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    public void setExitButton(ActionEvent event) {
-        Platform.exit();
-        System.exit(0);
-    }
 }

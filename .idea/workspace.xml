@@ -5,10 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="411a0a16-a100-46ea-a142-bee7c3cbcca9" name="Changes" comment="updated ui">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/SwitchPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dict_hh.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/dict_hh.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionary/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionary/api/TextToSpeech.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/api/TextToSpeech.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionary/api/Translator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/api/Translator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionary/core/DictionaryB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/core/DictionaryB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionary/core/DictionaryManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/core/DictionaryManagement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionary/core/History.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/core/History.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionary/core/Trie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/core/Trie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionary/core/Words.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/core/Words.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/AddWordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/AddWordController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/Alerts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/Alerts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/DeleteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/DeleteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/GamePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/GamePageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/HangManController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/HangManController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/HangManGUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/HangManGUIController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/MultipleChoiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/MultipleChoiceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/MultipleChoiceHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/MultipleChoiceHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/SearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/SearchController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/TextToSpeechController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/TextToSpeechController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/UpdateWordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/UpdateWordController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/dictionary/fxml/AddWord.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/dictionary/fxml/AddWord.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/dictionary/fxml/GGTranslate.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/dictionary/fxml/GGTranslate.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/dictionary/fxml/searchpage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/dictionary/fxml/searchpage.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/dictionary/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/dictionary/style.css" afterDir="false" />
@@ -21,8 +41,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -80,19 +100,6 @@
       <recent name="D:\java\dictionary\src\main\resources\com\example\dictionary" />
       <recent name="D:\java\dictionary\src\main\resources" />
     </key>
-  </component>
-  <component name="RunManager">
-    <configuration default="true" type="JetRunConfigurationType">
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

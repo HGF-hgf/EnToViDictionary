@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 import java.nio.charset.StandardCharsets;
 
 public class UpdateWordController {
-    private  static String editWord;
+    private static String editWord;
     @FXML
     private HTMLEditor htmlEditor;
     @FXML
@@ -25,15 +25,28 @@ public class UpdateWordController {
         UpdateWordController.editWord = editWord;
     }
 
+    /**
+     * This method is called to initialize a controller after its root element has been completely processed.
+     * It sets the 'wordLabel' text to the 'editWord' and the 'htmlEditor' text to the meaning of the 'editWord'.
+     */
     @FXML
-    private void initialize(){
+    private void initialize() {
         wordLabel.setText(editWord);
         String meaning = Application.dictionary.search(editWord);
         htmlEditor.setHtmlText(meaning);
     }
 
+    /**
+     * This method is called when the 'Save' button is clicked in the GUI.
+     * It gets the HTML text from the 'htmlEditor', removes the HTML tags, and replaces double quotes with single quotes.
+     * It then tries to update the word in the dictionary with the new meaning.
+     * If the update is successful, it prints a success message; otherwise, it prints an error message.
+     * Finally, it closes the window.
+     *
+     * @param event The ActionEvent object representing the button click event.
+     */
     @FXML
-    public void setSaveButton(ActionEvent event){
+    public void setSaveButton(ActionEvent event) {
         // Get the HTML text from the htmlEditor, convert it to bytes using UTF-8 encoding, and store it in the 'meaning' variable.
         byte[] meaning = htmlEditor.getHtmlText().getBytes(StandardCharsets.UTF_8);
 
@@ -61,9 +74,14 @@ public class UpdateWordController {
         stage.close();
     }
 
-
+    /**
+     * This method is called when the 'Cancel' button is clicked in the GUI.
+     * It closes the window.
+     *
+     * @param event The ActionEvent object representing the button click event.
+     */
     @FXML
-    public void setCancelButton(ActionEvent event){
+    public void setCancelButton(ActionEvent event) {
         Stage stage = (Stage) cancelButton.getScene().getWindow();
         stage.close();
     }

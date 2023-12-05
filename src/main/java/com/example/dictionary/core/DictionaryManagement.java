@@ -106,6 +106,12 @@ public class DictionaryManagement extends Dictionary {
         }
         return false;
     }
+
+    /**
+     * Load data from file.
+     *
+     * @param src the path to the file
+     */
     public void insertFromFileSpecial (String src, DictionaryB dict) {
         try {
             File file = new File(src);

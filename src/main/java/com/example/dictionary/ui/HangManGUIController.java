@@ -47,6 +47,15 @@ public class HangManGUIController implements Initializable {
     private GraphicsContext gc;
     private HangManController gameController;
 
+    /**
+     * This method is called to initialize a controller after its root element has been completely processed.
+     * It sets up the game controller, graphics context, and the text input listener for a hangman game.
+     * The text input listener checks the entered character, updates the game state, and redraws the hangman image as necessary.
+     * It also updates the displayed entered characters and current word, and checks if the game is over.
+     *
+     * @param location  The location used to resolve relative paths for the root object, or null if the location is not known.
+     * @param resources The resources used to localize the root object, or null if the root object was not localized.
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         gameController = new HangManController();
@@ -76,6 +85,10 @@ public class HangManGUIController implements Initializable {
         updateWord();
     }
 
+    /**
+     * This method updates the displayed word in a hangman game.
+     * It sets the font, color, alignment, and baseline of the text, and then draws the current state of the word on the canvas.
+     */
     private void updateWord() {
         gc.setFont(fontWord);
         gc.setFill(Color.BLACK);
@@ -84,6 +97,10 @@ public class HangManGUIController implements Initializable {
         gc.fillText(gameController.getCurrentWord(), 70, canvas.getHeight() - 60);
     }
 
+    /**
+     * This method draws the correct word in a hangman game.
+     * It sets the font, color, alignment, and baseline of the text, and then draws the current state of the word on the canvas.
+     */
     private void drawCorrectWord() {
         gc.setFont(fontWord);
         gc.setFill(Color.GREEN);
@@ -92,6 +109,11 @@ public class HangManGUIController implements Initializable {
         gc.fillText(gameController.getMissingChars(), 70, canvas.getHeight() - 60);
     }
 
+    /**
+     * This method checks if the game is over in a hangman game.
+     * If the game is won, it disables the text input and draws the "You Won!" message.
+     * If the game is lost, it disables the text input and draws the "Game Over!" message.
+     */
     private void checkGameOver() {
         if (gameController.isGameWon()) {
             // Return game won message
@@ -106,11 +128,22 @@ public class HangManGUIController implements Initializable {
         }
     }
 
+    /**
+     * This method resets the hangman game.
+     * It resets the game controller, clears the entered characters, clears the canvas, and updates the word.
+     */
     @FXML
     private void handleNewGame(final ActionEvent event) {
         resetGame();
     }
 
+    /**
+     * This method is called when the return button is clicked in the GUI.
+     * It loads a new scene from the 'GamePage.fxml' file and sets it on the current stage.
+     * If there are any errors during this process, it prints the stack trace.
+     *
+     * @param event The ActionEvent object representing the button click event.
+     */
     @FXML
     public void setReturnButton(ActionEvent event) {
         try {
@@ -125,6 +158,14 @@ public class HangManGUIController implements Initializable {
         }
     }
 
+    /**
+     * This method is called when the suggest button is clicked in the GUI.
+     * It sets the text of the text input to the suggested character, and then adds a listener to the text input.
+     * The listener checks the entered character, updates the game state, and redraws the hangman image as necessary.
+     * It also updates the displayed entered characters and current word, and checks if the game is over.
+     *
+     * @param event The ActionEvent object representing the button click event.
+     */
     @FXML
     public void setSuggestButton(ActionEvent event) {
         buttonPressCount++;
@@ -261,6 +302,11 @@ public class HangManGUIController implements Initializable {
         gc.stroke();
     }
 
+    /**
+     * This method updates the displayed list of entered characters in a hangman game.
+     * It gets the list of entered characters from the game controller, sorts them, and formats them into a string.
+     * It then sets this string as the text of the 'txtEntered' text field.
+     */
     private void updateEnteredChars() {
         StringBuilder enteredFormatted = new StringBuilder();
         gameController.getEnteredChars().stream().sorted().forEach(i -> enteredFormatted.append(i).append(","));

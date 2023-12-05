@@ -21,7 +21,7 @@ import java.io.IOException;
 import java.util.Objects;
 
 
-public class TextToSpeechController {
+public class TextToSpeechController extends SwitchPage {
     @FXML
     private TextArea sourceText;
     @FXML
@@ -54,23 +54,38 @@ public class TextToSpeechController {
     private boolean isEnToVi = true;
 
     public TextToSpeechController() {
-
     }
 
+    /**
+     * This method is called to initialize a controller after its root element has been completely processed.
+     * It sets the 'translatedText' field to be non-editable.
+     */
     @FXML
     private void initialize() {
         translatedText.setEditable(false);
     }
 
-
+    /**
+     * This method is called to translate the text from the 'sourceText' field.
+     * It splits the text into lines and translates each line.
+     * The translation direction is determined by the 'isEnToVi' flag.
+     * The translated text is then set on the 'translatedText' field.
+     */
     @FXML
     public void translate() {
         String text = sourceText.getText();
-        translatedText.setText(
-                isEnToVi ? Translator.translateEnToVi(text) : Translator.translateViToEn(text)
-        );
+        String[] lines = text.split("\n");
+        for (int i = 0; i < lines.length; i++) {
+            lines[i] = isEnToVi ? Translator.translateEnToVi(lines[i]) : Translator.translateViToEn(lines[i]);
+        }
+        translatedText.setText(String.join("\n", lines));
     }
 
+    /**
+     * This method is called to play the sound of the text from the 'translatedText' field.
+     * It gets the text from the 'translatedText' field and plays the sound.
+     * The translation direction is determined by the 'isEnToVi' flag.
+     */
     @FXML
     public void textToSpeech() {
         String text = translatedText.getText();
@@ -82,6 +97,10 @@ public class TextToSpeechController {
         }
     }
 
+    /**
+     * This method is called to convert the text from the 'sourceText' field to speech.
+     * The language of the speech is determined by the 'isEnToVi' flag.
+     */
     @FXML
     void textToSpeechsource() {
         String text = sourceText.getText();
@@ -92,6 +111,10 @@ public class TextToSpeechController {
         }
     }
 
+    /**
+     * This method is called to switch the translation direction.
+     * It changes the 'isEnToVi' flag and updates the UI accordingly.
+     */
     @FXML
     public void switchLanguage() {
         isEnToVi = !isEnToVi;
@@ -99,61 +122,10 @@ public class TextToSpeechController {
             sourceText.setPromptText("Enter text");
             sourceLabel.setText("English");
             translatedLabel.setText("Tiếng Việt");
-            //srcImg.setImage(new Image(Objects.requireNonNull(Application.class.getResourceAsStream("icons/icons8_great_britain_48px_1.png"))));
-            //transImg.setImage(new Image(Objects.requireNonNull(Application.class.getResourceAsStream("icons/icons8_vietnam_48px.png"))));
         } else {
             sourceText.setPromptText("Nhập văn bản");
             sourceLabel.setText("Tiếng Việt");
             translatedLabel.setText("English");
-            //srcImg.setImage(new Image(Objects.requireNonNull(Application.class.getResourceAsStream("icons/icons8_vietnam_48px.png"))));
-            //transImg.setImage(new Image(Objects.requireNonNull(Application.class.getResourceAsStream("icons/icons8_great_britain_48px_1.png"))));
         }
-    }
-    @FXML
-    public void setSearchButton(ActionEvent event) {
-        try {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(Application.class.getResource("fxml/searchpage.fxml")));
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root, 850, 550);
-            stage.setTitle("Dictionary");
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    public void setAddWordButton(ActionEvent event) {
-        try {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(Application.class.getResource("fxml/AddWord.fxml")));
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root, 850, 550);
-            stage.setTitle("Add Word");
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    public void setGameButton(ActionEvent event){
-        try {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(Application.class.getResource("fxml/GamePage.fxml")));
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root, 616, 397);
-            stage.setTitle("Game");
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    public void setExitButton(ActionEvent event) {
-        Platform.exit();
-        System.exit(0);
     }
 }

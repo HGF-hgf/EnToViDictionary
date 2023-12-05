@@ -10,6 +10,13 @@ import java.nio.charset.StandardCharsets;
 
 public class Translator {
 
+    /**
+     * this function is used to translate from English to Vietnamese
+     *
+     * @param text the text to be translated
+     * @return the translated text
+     * */
+
     public static String translateEnToVi(String text) {
         try {
             String langFrom = "en";
@@ -21,6 +28,12 @@ public class Translator {
         return "Error";
     }
 
+    /**
+     * this function is used to translate from Vietnamese to English
+     *
+     * @param text the text to be translated
+     * @return the translated text
+     * */
     public static String translateViToEn(String text) {
         try {
             String langFrom = "vi";

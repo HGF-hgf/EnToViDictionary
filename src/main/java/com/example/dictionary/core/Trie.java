@@ -7,11 +7,16 @@ import java.util.TreeMap;
 public class Trie {
     private static final ArrayList<String> searchedWords = new ArrayList<>();
     private static final TrieNode root = new TrieNode();
+
     public static ArrayList<String> getSearchedWords() {
         return searchedWords;
     }
 
-// insert a word into the trie
+    /**
+     * Insert a word into the trie\
+     *
+     * @param word the word to be inserted
+     */
     public static void insert(String word) {
         // current node
         TrieNode current = root;
@@ -28,6 +33,11 @@ public class Trie {
         current.isEndOfWord = true;
     }
 
+    /**
+     * Search for a word in the trie
+     *
+     * @param word the word to be searched
+     */
     private static void dfs(TrieNode current, String word) {
         // if the current node is the end of the word, add it to the list
         if (current.isEndOfWord) {
@@ -42,18 +52,23 @@ public class Trie {
         }
     }
 
-    // search for a word that starts with the prefix
-    public static ArrayList<String> search(String  prefix){
+    /**
+     * Search for a word in the trie
+     *
+     * @param prefix the prefix to be searched
+     * @return a list of words that start with the prefix
+     */
+    public static ArrayList<String> search(String prefix) {
         // if the prefix is null, return an empty list
-        if (prefix.isEmpty()){
+        if (prefix.isEmpty()) {
             return new ArrayList<>();
         }
         searchedWords.clear();
         TrieNode current = root;
-        for (int i = 0; i < prefix.length(); ++i){
+        for (int i = 0; i < prefix.length(); ++i) {
             char ch = prefix.charAt(i);
             // if the character is not in the trie, return an empty list
-            if (current.children.get(ch) == null){
+            if (current.children.get(ch) == null) {
                 return getSearchedWords();
             }
             current = current.children.get(ch);
@@ -62,23 +77,31 @@ public class Trie {
         return getSearchedWords();
     }
 
-    public static void delete(String word){
+    /**
+     * Delete a word from the trie
+     *
+     * @param word the word to be deleted
+     */
+    public static void delete(String word) {
         TrieNode current = root;
 
-        for (int i = 0; i < word.length();++i){
+        for (int i = 0; i < word.length(); ++i) {
             char ch = word.charAt(i);
             // if the character is not in the trie, return
-            if (current.children.get(ch) == null){
+            if (current.children.get(ch) == null) {
                 System.out.println("Word not found");
                 return;
             }
         }
-        if (!current.isEndOfWord){
+        if (!current.isEndOfWord) {
             System.out.println("Word not found");
         }
         current.isEndOfWord = false;
     }
 
+    /**
+     * A node in the trie
+     */
     public static class TrieNode {
         Map<Character, TrieNode> children = new TreeMap<>();
 

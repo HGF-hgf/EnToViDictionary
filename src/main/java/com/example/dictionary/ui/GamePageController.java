@@ -14,10 +14,22 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class GamePageController implements Initializable {
-    @FXML private Button btnHangman;
-    @FXML private Button btnMultipleChoice;
-    @FXML private Button btnReturn;
+    @FXML
+    private Button btnHangman;
+    @FXML
+    private Button btnMultipleChoice;
+    @FXML
+    private Button btnReturn;
 
+    /**
+     * This method is called to initialize a controller after its root element has been completely processed.
+     * It sets up the action handlers for the 'btnReturn', 'btnHangman', and 'btnMultipleChoice' buttons.
+     * When each button is clicked, it loads a new scene from the corresponding FXML file and sets it on the current stage.
+     * If there are any errors during this process, it prints the stack trace.
+     *
+     * @param url            The location used to resolve relative paths for the root object, or null if the location is not known.
+     * @param resourceBundle The resources used to localize the root object, or null if the root object was not localized.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 

@@ -15,6 +15,15 @@ public class DeleteController {
     @FXML
     private TextField textField;
 
+    /**
+     * This method is called when the commit button is clicked in the GUI.
+     * It gets the text from a text field and attempts to delete the corresponding word from the dictionary.
+     * If the word is successfully deleted, it prints a confirmation message.
+     * If the word cannot be deleted (for example, if it does not exist in the dictionary), it prints an error message.
+     * After attempting to delete the word, it closes the window.
+     *
+     * @param event The ActionEvent object representing the button click event.
+     */
     @FXML
     public void setCommitButton(ActionEvent event){
         String word = textField.getText();
@@ -27,6 +36,12 @@ public class DeleteController {
         stage.close();
     }
 
+    /**
+     * This method is called when the cancel button is clicked in the GUI.
+     * It closes the window.
+     *
+     * @param event The ActionEvent object representing the button click event.
+     */
     @FXML
     public void setCancelButton(ActionEvent event){
         System.out.println("Cancel");

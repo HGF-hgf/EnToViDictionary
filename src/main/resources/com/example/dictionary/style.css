@@ -305,3 +305,8 @@
 .exit-button:hover{
      -fx-background-color: #b22a00;
 }
+
+.selected-border{
+    -fx-border-color: #ffffff;
+    -fx-border-width: 0 2 0 0;
+}

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
@@ -11,147 +12,181 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="850.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.ui.TextToSpeechController">
-   <children>
-      <Pane prefHeight="550.0" prefWidth="859.0" styleClass="root" stylesheets="@../style.css">
-         <children>
-            <ImageView fitHeight="33.0" fitWidth="31.0" layoutX="18.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../icons/book.png" />
-               </image>
-            </ImageView>
-            <Pane layoutX="65.0" prefHeight="550.0" prefWidth="792.0" style="-fx-background-color: #ffffff; -fx-border-radius: 10px; -fx-background-radius: 10px;" styleClass="search-box" stylesheets="@../style.css">
-               <children>
-                  <Pane prefHeight="50.0" prefWidth="280.0" styleClass="container" stylesheets="@../style.css" />
-                  <Pane layoutX="65.0" layoutY="148.0" prefHeight="348.0" prefWidth="674.0" stylesheets="@../style.css">
-                     <children>
-                        <TextArea fx:id="sourceText" layoutX="-2.0" layoutY="64.0" prefHeight="230.0" prefWidth="331.0" promptText="Enter text" style="-fx-border-radius: 10; -fx-background-radius: 10;" stylesheets="@../style.css">
-                           <font>
-                              <Font name="Google Sans Regular" size="21.0" />
-                           </font></TextArea>
-                        <TextArea fx:id="translatedText" layoutX="334.0" layoutY="64.0" prefHeight="230.0" prefWidth="331.0" style="-fx-background-color: #272727;" styleClass="target-translate" stylesheets="@../style.css" />
-                        <Pane layoutX="-2.0" layoutY="11.0" prefHeight="45.0" prefWidth="309.0" styleClass="header-translate" stylesheets="@../style.css">
-                           <children>
-                              <Label fx:id="sourceLabel" layoutX="107.0" layoutY="4.0" prefHeight="37.0" prefWidth="138.0" stylesheets="@../style.css" text="English" textFill="#272727">
-                                 <font>
-                                    <Font name="Google Sans Regular" size="17.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
-                        <Pane layoutX="353.0" layoutY="11.0" prefHeight="45.0" prefWidth="309.0" styleClass="header-translate" stylesheets="@../style.css">
-                           <children>
-                              <Label fx:id="translatedLabel" layoutX="112.0" layoutY="6.0" prefHeight="33.0" prefWidth="132.0" text="Tiếng Việt">
-                                 <font>
-                                    <Font name="Google Sans Regular" size="16.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
-                        <Button fx:id="translateButton" layoutX="-2.0" layoutY="304.0" mnemonicParsing="false" onAction="#translate" prefHeight="33.0" prefWidth="70.0" styleClass="add-button" stylesheets="@../style.css" text="Dịch" />
-                        <Button fx:id="switchLanguageButton" layoutX="297.0" layoutY="11.0" mnemonicParsing="false" onAction="#switchLanguage" prefHeight="50.0" prefWidth="64.0" styleClass="switch-button" stylesheets="@../style.css">
-                           <graphic>
-                              <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../icon/swap.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Button fx:id="textToSpeechButton" layoutX="341.0" layoutY="250.0" mnemonicParsing="false" onAction="#textToSpeech" prefHeight="33.0" prefWidth="33.0" style="-fx-background-color: #ffffff;">
-                           <graphic>
-                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../icons/icons8_speaker_64px.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Button fx:id="textToSpeechsource" layoutX="7.0" layoutY="250.0" mnemonicParsing="false" onAction="#textToSpeechsource" prefHeight="33.0" prefWidth="33.0" style="-fx-background-color: #ffffff;">
-                           <graphic>
-                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../icons/icons8_speaker_64px.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                     </children>
-                  </Pane>
-                  <Pane prefHeight="137.0" prefWidth="792.0" styleClass="header" stylesheets="@../style.css">
-                     <children>
-                        <Pane layoutX="240.0" layoutY="20.0" />
-                        <ImageView fitHeight="73.0" fitWidth="230.0" layoutX="548.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../icons/logo.png" />
-                           </image>
-                        </ImageView>
-                        <Text fill="#2a4878" layoutX="133.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Translation" wrappingWidth="191.33746337890625">
-                           <font>
-                              <Font name="Google Sans Bold" size="32.0" />
-                           </font>
-                        </Text>
-                        <ImageView fitHeight="84.0" fitWidth="81.0" layoutX="52.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../icon/translate-icon-light.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </Pane>
-               </children>
-            </Pane>
-            <Button fx:id="exitButton" layoutX="7.0" layoutY="491.0" mnemonicParsing="false" onAction="#setExitButton" prefHeight="45.0" prefWidth="45.0" styleClass="exit-button" stylesheets="@../style.css">
-               <graphic>
-                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../icons/icons8_exit_32px.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <tooltip>
-                  <Tooltip text="Exit" />
-               </tooltip>
-            </Button>
-            <Button layoutX="7.0" layoutY="210.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" styleClass="menu-item" stylesheets="@../style.css" textFill="WHITE">
-               <graphic>
-                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../icons/keyboard.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button fx:id="searchButton" layoutX="9.0" layoutY="132.0" mnemonicParsing="false" onAction="#setSearchButton" prefHeight="45.0" prefWidth="45.0" styleClass="menu-item" stylesheets="@../style.css" textFill="WHITE">
-               <graphic>
-                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../icons/icons8_search_24px.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button fx:id="gameButton" layoutX="7.0" layoutY="367.0" mnemonicParsing="false" onAction="#setGameButton" prefHeight="45.0" prefWidth="45.0" styleClass="menu-item" stylesheets="@../style.css" textFill="WHITE">
-               <tooltip>
-                  <Tooltip text="Game" />
-               </tooltip>
-               <graphic>
-                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../icons/game-console.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button fx:id="addWordButton" layoutX="9.0" layoutY="290.0" mnemonicParsing="false" onAction="#setAddWordButton" prefHeight="45.0" prefWidth="45.0" styleClass="menu-item" stylesheets="@../style.css" textFill="WHITE">
-               <graphic>
-                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../icons/icons8_add_32px.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-         </children>
-      </Pane>
-   </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0"
+            prefWidth="850.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px;"
+            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.dictionary.ui.TextToSpeechController">
+   <Pane prefHeight="550.0" prefWidth="859.0" styleClass="root" stylesheets="@../style.css">
+      <children>
+         <ImageView fitHeight="52.0" fitWidth="38.0" layoutX="11.0" layoutY="14.0" pickOnBounds="true"
+                    preserveRatio="true">
+            <image>
+               <Image url="@../icons/book.png"/>
+            </image>
+         </ImageView>
+         <Pane layoutX="65.0" prefHeight="550.0" prefWidth="792.0"
+               style="-fx-background-color: #ffffff; -fx-border-radius: 10px; -fx-background-radius: 10px;"
+               styleClass="search-box" stylesheets="@../style.css">
+            <children>
+               <Pane prefHeight="50.0" prefWidth="280.0" styleClass="container" stylesheets="@../style.css"/>
+               <Pane layoutX="65.0" layoutY="148.0" prefHeight="348.0" prefWidth="674.0" stylesheets="@../style.css">
+                  <children>
+                     <TextArea fx:id="sourceText" layoutX="-2.0" layoutY="64.0" prefHeight="230.0" prefWidth="331.0"
+                               promptText="Enter text" style="-fx-border-radius: 10; -fx-background-radius: 10;"
+                               stylesheets="@../style.css">
+                        <font>
+                           <Font name="Google Sans Regular" size="21.0"/>
+                        </font>
+                     </TextArea>
+                     <TextArea fx:id="translatedText" layoutX="334.0" layoutY="64.0" prefHeight="230.0"
+                               prefWidth="331.0" style="-fx-background-color: #272727;" styleClass="target-translate"
+                               stylesheets="@../style.css"/>
+                     <Pane layoutX="-2.0" layoutY="11.0" prefHeight="45.0" prefWidth="309.0"
+                           styleClass="header-translate" stylesheets="@../style.css">
+                        <children>
+                           <Label fx:id="sourceLabel" layoutX="107.0" layoutY="4.0" prefHeight="37.0" prefWidth="138.0"
+                                  stylesheets="@../style.css" text="English" textFill="#272727">
+                              <font>
+                                 <Font name="Google Sans Regular" size="17.0"/>
+                              </font>
+                           </Label>
+                        </children>
+                     </Pane>
+                     <Pane layoutX="353.0" layoutY="11.0" prefHeight="45.0" prefWidth="309.0"
+                           styleClass="header-translate" stylesheets="@../style.css">
+                        <children>
+                           <Label fx:id="translatedLabel" layoutX="112.0" layoutY="6.0" prefHeight="33.0"
+                                  prefWidth="132.0" text="Tiếng Việt">
+                              <font>
+                                 <Font name="Google Sans Regular" size="16.0"/>
+                              </font>
+                           </Label>
+                        </children>
+                     </Pane>
+                     <Button fx:id="translateButton" layoutX="-2.0" layoutY="304.0" mnemonicParsing="false"
+                             onAction="#translate" prefHeight="33.0" prefWidth="70.0" styleClass="add-button"
+                             stylesheets="@../style.css" text="Dịch"/>
+                     <Button fx:id="switchLanguageButton" layoutX="297.0" layoutY="11.0" mnemonicParsing="false"
+                             onAction="#switchLanguage" prefHeight="50.0" prefWidth="64.0" styleClass="switch-button"
+                             stylesheets="@../style.css">
+                        <graphic>
+                           <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                 <Image url="@../icons/icons8_data_transfer_48px.png"/>
+                              </image>
+                           </ImageView>
+                        </graphic>
+                     </Button>
+                     <Button fx:id="textToSpeechButton" layoutX="341.0" layoutY="250.0" mnemonicParsing="false"
+                             onAction="#textToSpeech" prefHeight="33.0" prefWidth="33.0"
+                             style="-fx-background-color: #ffffff;">
+                        <graphic>
+                           <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                 <Image url="@../icons/icons8_speaker_64px.png"/>
+                              </image>
+                           </ImageView>
+                        </graphic>
+                     </Button>
+                     <Button fx:id="textToSpeechsource" layoutX="7.0" layoutY="250.0" mnemonicParsing="false"
+                             onAction="#textToSpeechsource" prefHeight="33.0" prefWidth="33.0"
+                             style="-fx-background-color: #ffffff;">
+                        <graphic>
+                           <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                 <Image url="@../icons/icons8_speaker_64px.png"/>
+                              </image>
+                           </ImageView>
+                        </graphic>
+                     </Button>
+                  </children>
+               </Pane>
+               <Pane prefHeight="137.0" prefWidth="792.0" styleClass="header" stylesheets="@../style.css">
+                  <children>
+                     <Pane layoutX="240.0" layoutY="20.0"/>
+                     <ImageView fitHeight="73.0" fitWidth="230.0" layoutX="548.0" layoutY="30.0" pickOnBounds="true"
+                                preserveRatio="true">
+                        <image>
+                           <Image url="@../icons/logo.png"/>
+                        </image>
+                     </ImageView>
+                     <Text fill="#2a4878" layoutX="133.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                           text="Translation" wrappingWidth="191.33746337890625">
+                        <font>
+                           <Font name="Google Sans Bold" size="32.0"/>
+                        </font>
+                     </Text>
+                     <ImageView fitHeight="84.0" fitWidth="81.0" layoutX="52.0" layoutY="19.0" pickOnBounds="true"
+                                preserveRatio="true">
+                        <image>
+                           <Image url="@../icon/translate-icon-light.png"/>
+                        </image>
+                     </ImageView>
+                  </children>
+               </Pane>
+            </children>
+         </Pane>
+         <Button fx:id="exitButton" layoutX="7.0" layoutY="491.0" mnemonicParsing="false" onAction="#setExitButton"
+                 prefHeight="45.0" prefWidth="45.0" styleClass="exit-button" stylesheets="@../style.css">
+            <graphic>
+               <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../icons/icons8_exit_32px.png"/>
+                  </image>
+               </ImageView>
+            </graphic>
+            <tooltip>
+               <Tooltip text="Exit"/>
+            </tooltip>
+         </Button>
+         <Button layoutX="7.0" layoutY="202.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0"
+                 stylesheets="@../style.css" textFill="WHITE">
+            <graphic>
+               <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../icons/keyboard.png"/>
+                  </image>
+               </ImageView>
+            </graphic>
+            <styleClass>
+               <String fx:value="menu-item"/>
+               <String fx:value="selected-border"/>
+            </styleClass>
+         </Button>
+         <Button fx:id="searchButton" layoutX="7.0" layoutY="128.0" mnemonicParsing="false" onAction="#setSearchButton"
+                 prefHeight="45.0" prefWidth="45.0" styleClass="menu-item" stylesheets="@../style.css" textFill="WHITE">
+            <graphic>
+               <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../icons/icons8_search_24px.png"/>
+                  </image>
+               </ImageView>
+            </graphic>
+         </Button>
+         <Button fx:id="gameButton" layoutX="7.0" layoutY="362.0" mnemonicParsing="false" onAction="#setGameButton"
+                 prefHeight="45.0" prefWidth="45.0" styleClass="menu-item" stylesheets="@../style.css" textFill="WHITE">
+            <tooltip>
+               <Tooltip text="Game"/>
+            </tooltip>
+            <graphic>
+               <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../icons/game-console.png"/>
+                  </image>
+               </ImageView>
+            </graphic>
+         </Button>
+         <Button fx:id="addWordButton" layoutX="9.0" layoutY="282.0" mnemonicParsing="false"
+                 onAction="#setAddWordButton" prefHeight="45.0" prefWidth="45.0" styleClass="menu-item"
+                 stylesheets="@../style.css" textFill="WHITE">
+            <graphic>
+               <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../icons/icons8_add_32px.png"/>
+                  </image>
+               </ImageView>
+            </graphic>
+         </Button>
+      </children>
+   </Pane>
 </AnchorPane>

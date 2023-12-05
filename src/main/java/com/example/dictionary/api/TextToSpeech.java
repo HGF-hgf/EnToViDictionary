@@ -8,7 +8,14 @@ import java.nio.charset.StandardCharsets;
 import javazoom.jl.player.Player;
 
 public class TextToSpeech {
-    // A static method that takes a string as input and plays its pronunciation.
+
+    /**
+     * This method uses Google's text-to-speech service to convert English text to speech.
+     * It sends a GET request to the service with the text and language (English) as parameters.
+     * The service returns an audio stream which is then played.
+     *
+     * @param text The English text to be converted to speech.
+     */
     public static void soundEnToVi(String text){
         try {
             // Construct the URL for Google's text-to-speech service. The text is URL-encoded and the language is set to English.
@@ -35,6 +42,13 @@ public class TextToSpeech {
         }
     }
 
+    /**
+     * This method uses Google's text-to-speech service to convert Vietnamese text to speech.
+     * It sends a GET request to the service with the text and language (Vietnamese) as parameters.
+     * The service returns an audio stream which is then played.
+     *
+     * @param text The Vietnamese text to be converted to speech.
+     */
     public static void soundViToEn(String text){
         try {
             String link = "https://translate.google.com/translate_tts?ie=UTF-8&tl="

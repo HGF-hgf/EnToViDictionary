@@ -21,27 +21,50 @@ import java.util.Optional;
 
 import static com.example.dictionary.Application.dictionary;
 
-public class AddWordController {
+public class AddWordController extends SwitchPage {
     Alerts alerts = new Alerts();
-    @FXML private Button browseButton;
-    @FXML private Button saveButton;
-    @FXML private Button searchButton;
-    @FXML private Button gameButton;
-    @FXML private Button exitButton;
-    @FXML private Button translateButton;
-    @FXML private HTMLEditor htmlEditor;
-    @FXML private TextField wordTextField;
-    @FXML private Label successAlert;
-
     @FXML
-    private void initialize(){
+    private Button browseButton;
+    @FXML
+    private Button saveButton;
+    @FXML
+    private Button searchButton;
+    @FXML
+    private Button gameButton;
+    @FXML
+    private Button exitButton;
+    @FXML
+    private Button translateButton;
+    @FXML
+    private HTMLEditor htmlEditor;
+    @FXML
+    private TextField wordTextField;
+    @FXML
+    private Label successAlert;
+
+    /**
+     * This method is called to initialize a controller after its root element has been completely processed.
+     * It sets the 'successAlert' visibility to false.
+     */
+    @FXML
+    private void initialize() {
         // Set focus on the wordTextField
         successAlert.setVisible(false);
     }
 
+    /**
+     * This method is called when the save button is clicked in the GUI.
+     * It shows a confirmation alert and, if the user confirms, gets the input data and processes it.
+     * If the entered word already exists in the dictionary, it shows another alert asking if the user wants to replace the existing meaning.
+     * If the user confirms, it updates the word in the dictionary. If the user cancels, it shows an information alert.
+     * If the entered word does not exist in the dictionary, it inserts the word into the dictionary and shows a success alert.
+     * After processing the input, it resets the input fields and disables the save button for a short time.
+     *
+     * @param event The ActionEvent object representing the button click event.
+     */
     @FXML
-    public void setSaveButton(ActionEvent event){
-        Alert alertConfirmation = alerts.alertConfirmation("Add word" ,
+    public void setSaveButton(ActionEvent event) {
+        Alert alertConfirmation = alerts.alertConfirmation("Add word",
                 "Bạn chắc chắn muốn thêm từ này?");
         Optional<ButtonType> option = alertConfirmation.showAndWait();
         // get data from input
@@ -60,7 +83,7 @@ public class AddWordController {
                 // find index of word in dictionary
 
                 // show confirmation alert
-                Alert selectionAlert = alerts.alertConfirmation("This word already exists" ,
+                Alert selectionAlert = alerts.alertConfirmation("This word already exists",
                         "Từ này đã tồn tại.\n" +
                                 "Bạn có muốn thay thế nghĩa cũ bằng nghĩa mới không?");
                 // custom button
@@ -69,12 +92,12 @@ public class AddWordController {
                 selectionAlert.getButtonTypes().addAll(replaceBtn, ButtonType.CANCEL);
                 Optional<ButtonType> selection = selectionAlert.showAndWait();
 
-                if(selection.get() == replaceBtn) {
+                if (selection.get() == replaceBtn) {
                     // replace old meaning, replace this with sqlite later
                     Application.dictionary.update(target, meaning);
                 }
-                if(selection.get() == ButtonType.CANCEL){
-                    alerts.showAlertInfo("Information" , "Thay đổi không được công nhận.");
+                if (selection.get() == ButtonType.CANCEL) {
+                    alerts.showAlertInfo("Information", "Thay đổi không được công nhận.");
                 }
             } else {
                 dictionary.insert(target, meaning);
@@ -83,67 +106,24 @@ public class AddWordController {
             }
             // reset input
             saveButton.setDisable(true);
-            Dictionary.setTimeout(() -> saveButton.setDisable(false) , 1500);
+            Dictionary.setTimeout(() -> saveButton.setDisable(false), 1500);
             wordTextField.setText("");
             htmlEditor.setHtmlText("");
 
         } else if (option.get() == ButtonType.CANCEL) {
-            alerts.showAlertInfo("Information" , "Thay đổi không được công nhận.");
+            alerts.showAlertInfo("Information", "Thay đổi không được công nhận.");
         }
     }
 
-    @FXML
-    public void setExitButton(ActionEvent event) {
-        Platform.exit();
-        System.exit(0);
-    }
 
-    @FXML
-    public void setTranslateButton(ActionEvent event) {
-        try {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(Application.class.getResource("fxml/GGTranslate.fxml")));
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root, 850, 550);
-            stage.setTitle("Google Translate");
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    public void setSearchButton(ActionEvent event) {
-        try {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(Application.class.getResource("fxml/searchpage.fxml")));
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root, 850, 550);
-            stage.setTitle("Dictionary");
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    public void setGameButton(ActionEvent event){
-        try {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(Application.class.getResource("fxml/GamePage.fxml")));
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root, 616, 397);
-            stage.setTitle("Game");
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void showSuccessAlert(){
+    /**
+     * This method shows a success alert in the GUI.
+     * It sets the 'successAlert' visibility to true, and then sets it back to false after a short delay.
+     */
+    private void showSuccessAlert() {
         successAlert.setVisible(true);
         // automatic hide success alert
-        Dictionary.setTimeout(() -> successAlert.setVisible(false) , 1500);
+        Dictionary.setTimeout(() -> successAlert.setVisible(false), 1500);
     }
 
 }

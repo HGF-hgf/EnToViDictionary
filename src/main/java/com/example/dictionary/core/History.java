@@ -12,6 +12,9 @@ public class History {
         return history;
     }
 
+    /**
+     * This method removes the first element of the history until the size is less than Max
+     * */
     public static void refactorHistory() {
         // if the size of the history is less than Max, return
         if (history.size() <= Max) {
@@ -23,6 +26,12 @@ public class History {
         }
     }
 
+    /**
+     * This method loads the history of dictionary lookups from a file.
+     * If the history folder or file does not exist, it creates them.
+     * It reads each line from the history file and adds it to the history list.
+     * If there are any errors during this process, it prints an error message and the stack trace.
+     */
     public static void loadHistory() {
         // create the history folder and file if they don't exist
         File file = new File("dictionary-history/");
@@ -69,12 +78,21 @@ public class History {
         refactorHistory();
     }
 
+    /**
+     * This method adds a word to the history list.
+     * If the word is already in the history list, it removes it and adds it to the end of the list.
+     * It then calls the refactorHistory method to remove the first element of the history until the size is less than Max.
+     * */
     public static void addHistory(String word) {
         history.removeIf(w -> w.equals(word));
         history.add(word);
         refactorHistory();
     }
 
+    /**
+     * This method writes the history list to the history file.
+     * If there are any errors during this process, it prints an error message and the stack trace.
+     * */
     public static void addToFile() {
         try {
             Writer writer = new BufferedWriter(

@@ -24,7 +24,15 @@ class HangManController {
         setNewRandomWord();
     }
 
-    String getCurrentWord() {
+    /**
+     * This method constructs and returns the current state of the word being guessed in a hangman game.
+     * It iterates over each character in the random word. If the character has been entered by the user,
+     * it adds the character to the current word. Otherwise, it adds an underscore.
+     * The returned string represents the word with guessed letters revealed and unguessed letters hidden.
+     *
+     * @return A string representing the current state of the word being guessed.
+     */
+    public String getCurrentWord() {
         String currentWord = "";
         for (char c : rndWord.toCharArray()) {
             if (enteredChars.contains(c)) {
@@ -36,7 +44,16 @@ class HangManController {
         return currentWord;
     }
 
-    String getMissingChars() {
+    /**
+     * This method constructs and returns the current state of the word being guessed in a hangman game.
+     * It iterates over each character in the random word. If the character has been entered by the user,
+     * it adds two spaces. Otherwise, it adds the character.
+     * The returned string represents the word with guessed letters hidden and unguessed letters revealed.
+     * This is used to display the word after the game is over.
+     *
+     * @return A string representing the current state of the word being guessed.
+     */
+    public String getMissingChars() {
         String missingChars = "";
         for (char c : rndWord.toCharArray()) {
             if (enteredChars.contains(c)) {
@@ -48,7 +65,12 @@ class HangManController {
         return missingChars;
     }
 
-    String getWord() {
+    /**
+     * This method returns the word being guessed in a hangman game.
+     *
+     * @return A string representing the word being guessed.
+     */
+    public String getWord() {
         String word = "";
         for (char c : rndWord.toCharArray()) {
             word += c + " ";
@@ -56,23 +78,39 @@ class HangManController {
         return word;
     }
 
-    void reset() {
+    /**
+     * This method returns the meaning of the word being guessed in a hangman game.
+     */
+    public void reset() {
         wrongGuesses = 0;
         enteredChars.clear();
         setNewRandomWord();
     }
 
+    /**
+     * This method returns the meaning of the word being guessed in a hangman game.
+     */
     private void setNewRandomWord() {
         Words w = dictionary.getAllWords().get((int) (Math.random() * dictionary.getAllWords().size()));
         rndWord = w.getWord();
         playedWords.add(w);
     }
 
-    int getWrongGuesses() {
+    /**
+     * This method returns the meaning of the word being guessed in a hangman game.
+     */
+    public int getWrongGuesses() {
         return wrongGuesses;
     }
 
-    boolean addChar(char ch) {
+    /**
+     * This method adds a guessed character to the list of entered characters in a hangman game.
+     * If the character has not been guessed before and is not in the random word, it increments the count of wrong guesses.
+     *
+     * @param ch The character to be added to the list of entered characters.
+     * @return A boolean indicating whether the guess was wrong (true if the guess was wrong, false otherwise).
+     */
+    public boolean addChar(char ch) {
         boolean wrongGuess = false;
         if ((!enteredChars.stream().anyMatch(i -> i.equals(ch)))) {
             enteredChars.add(ch);
@@ -86,15 +124,30 @@ class HangManController {
         return wrongGuess;
     }
 
-    List<Character> getEnteredChars() {
+    /**
+     * This method returns the list of entered characters in a hangman game.
+     *
+     * @return A list of characters representing the characters that have been entered.
+     */
+    public List<Character> getEnteredChars() {
         return Collections.unmodifiableList(enteredChars);
     }
 
-    boolean isGameOver() {
+    /**
+     * This method returns the list of played words in a hangman game.
+     *
+     * @return A list of words representing the words that have been played.
+     */
+    public boolean isGameOver() {
         return wrongGuesses >= MAX_WRONG_GUESSES;
     }
 
-    boolean isGameWon() {
+    /**
+     * This method returns the list of played words in a hangman game.
+     *
+     * @return A list of words representing the words that have been played.
+     */
+    public boolean isGameWon() {
         for (char c : rndWord.toCharArray()) {
             if (!enteredChars.contains(c)) {
                 return false;
@@ -104,6 +157,11 @@ class HangManController {
         return true;
     }
 
+    /**
+     * This method returns the list of played words in a hangman game.
+     *
+     * @return A list of words representing the words that have been played.
+     */
     public String suggestChar() {
         ArrayList<Character> availableChars = new ArrayList<>();
         for (int i = 0; i < rndWord.length(); i++) {
@@ -120,5 +178,4 @@ class HangManController {
 
         return String.valueOf(selectedChar);
     }
-
 }

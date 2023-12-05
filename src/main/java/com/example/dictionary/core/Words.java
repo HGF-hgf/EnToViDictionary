@@ -9,7 +9,9 @@ public class Words {
         this.meaning = meaning;
     }
 
-
+    /**
+     * Setters and Getters
+     * */
     public void setWord(String word) {
         this.word = word;
     }
