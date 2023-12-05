@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="411a0a16-a100-46ea-a142-bee7c3cbcca9" name="Changes" comment="updated ui">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionary/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/HangManController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/HangManController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/MultipleChoiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/MultipleChoiceController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/SwitchPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/SwitchPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/dictionary/fxml/GamePage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/dictionary/fxml/GamePage.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,7 +201,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701787085377</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="updated ui">
+      <option name="closed" value="true" />
+      <created>1701787277268</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1701787277268</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

@@ -68,11 +68,6 @@ public class Application extends javafx.application.Application {
         }
     }
 
-    /**
-     * This method is the entry point of the application.
-     *
-     * @param args Command line arguments.
-     */
     public static void main(String[] args) {
         History.loadHistory();
         launch(args);

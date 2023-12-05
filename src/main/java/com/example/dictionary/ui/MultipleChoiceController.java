@@ -10,7 +10,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
@@ -22,6 +24,7 @@ import java.util.*;
 public class MultipleChoiceController implements Initializable {
     private static final int numberOfQuestions = 5;
     private int questionIndex = 1, score = 0, i;
+    Alerts alerts = new Alerts();
     private String defination, answer;
     @FXML
     private Label questionLabel, scoreLabel;
@@ -102,9 +105,6 @@ public class MultipleChoiceController implements Initializable {
                 }
             }
         });
-//        choice2.setOnAction(e -> checkAnswer(choice2.getText(), choice2));
-//        choice3.setOnAction(e -> checkAnswer(choice3.getText(), choice3));
-//        choice4.setOnAction(e -> checkAnswer(choice4.getText(), choice4));
         nextBtn.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
@@ -150,7 +150,7 @@ public class MultipleChoiceController implements Initializable {
     /**
      * This method displays the question on the screen.
      * It also generates the choices for the question and displays them on the screen.
-     * It uses the 'getRandomIndex' method to generate a random index within the range [0, dict.size()).
+     * It uses the 'getRandomIndex' method to generate a random index within the range [0, dict.size()].
      * It uses the 'previousAnswers' set to make sure that the same word is not displayed twice in a row.
      */
     private void displayQuestion() {
@@ -177,9 +177,28 @@ public class MultipleChoiceController implements Initializable {
             if (score == 5) {
                 questionLabel.setText("Perfect! Your score: " + score);
             }
-            disableButtons();
+            Alert playAgainAlert = alerts.alertConfirmation("Play again?", "Do you want to play again?");
+            Optional<ButtonType> selection = playAgainAlert.showAndWait();
+            if (selection.get() == ButtonType.OK) {
+                score = 0;
+                scoreLabel.setText("Score ");
+                questionIndex = 1;
+                previousAnswers.clear();
+                scoreLabel.setVisible(true);
+                displayQuestion();
+            } else {
+                String path = "fxml/MultipleChoiceHelper.fxml";
+                try {
+                    FXMLLoader loader = new FXMLLoader(Application.class.getResource(path));
+                    Stage stage = (Stage) returnBtn.getScene().getWindow();
+                    Scene scene = new Scene(loader.load());
+                    stage.setScene(scene);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                disableButtons();
+            }
         }
-
     }
 
     /**
@@ -192,7 +211,6 @@ public class MultipleChoiceController implements Initializable {
      * @param btn            The button that was clicked.
      */
     private void checkAnswer(String selectedAnswer, Button btn) {
-
         checking = true;
         if (selectedAnswer.equals(answer)) {
             score++; // Correct answer, increment score
@@ -203,9 +221,6 @@ public class MultipleChoiceController implements Initializable {
             b.get(i).setStyle("-fx-background-color: #1e90ff");
         }
         setNextBtnText();
-
-        // Move to the next question
-        //questionIndex++;
     }
 
     /**
