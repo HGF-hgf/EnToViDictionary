@@ -45,7 +45,7 @@ and Google Translate API
 
 ![Google Translate](https://github.com/HGF-hgf/EnToViDictionary/blob/master/src/main/resources/com/example/dictionary/images/api.png)
 
-![Games](https://github.com/HGF-hgf/EnToViDictionary/blob/master/src/main/resources/com/example/dictionary/images/game.png)
+![Games](https://github.com/HGF-hgf/EnToViDictionary/blob/master/src/main/resources/com/example/dictionary/images/games.png)
 
 ## Installation
 
