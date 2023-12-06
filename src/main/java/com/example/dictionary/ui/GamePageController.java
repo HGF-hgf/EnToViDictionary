@@ -13,13 +13,11 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class GamePageController implements Initializable {
+public class GamePageController extends SwitchPage implements Initializable {
     @FXML
     private Button btnHangman;
     @FXML
     private Button btnMultipleChoice;
-    @FXML
-    private Button btnReturn;
 
     /**
      * This method is called to initialize a controller after its root element has been completely processed.
@@ -32,20 +30,6 @@ public class GamePageController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-        btnReturn.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                try {
-                    FXMLLoader loader = new FXMLLoader(Application.class.getResource("fxml/searchpage.fxml"));
-                    Stage stage = (Stage) btnReturn.getScene().getWindow();
-                    Scene scene = new Scene(loader.load());
-                    stage.setScene(scene);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
         btnHangman.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {

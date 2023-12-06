@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -12,30 +14,18 @@
    <children>
       <Pane layoutX="66.0" prefHeight="550.0" prefWidth="792.0" styleClass="container-dropshadow" stylesheets="@../style.css">
          <children>
-            <Text fill="#2a4878" layoutX="14.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Games" wrappingWidth="144.8409423828125">
-               <font>
-                  <Font name="System Bold" size="30.0" />
-               </font>
-            </Text>
             <Pane prefHeight="98.0" prefWidth="792.0" styleClass="container-dropshadow" stylesheets="@../style.css">
                <children>
-                  <Button fx:id="btnReturn" layoutX="27.0" layoutY="29.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="117.0" styleClass="container" stylesheets="@../style.css" text="Quay lại" textFill="#2a4878">
-                     <font>
-                        <Font name="System Bold" size="16.0" />
-                     </font>
-                     <graphic>
-                        <ImageView fitHeight="33.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../icons/keyboard_arrow_left_FILL0_wght400_GRAD0_opsz24.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
                   <ImageView fitHeight="70.0" fitWidth="258.0" layoutX="514.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../icons/logo.png" />
                      </image>
                   </ImageView>
+                  <Text fill="#2a4878" layoutX="28.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Games" wrappingWidth="144.8409423828125">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                  </Text>
                </children>
             </Pane>
          </children>
@@ -83,5 +73,69 @@
             <Image url="@../icons/book.png" />
          </image>
       </ImageView>
+      <Button layoutX="7.0" layoutY="125.0" mnemonicParsing="false" onAction="#setSearchButton" prefHeight="45.0" prefWidth="45.0" styleClass="menu-item" stylesheets="@../style.css" textFill="WHITE">
+         <tooltip>
+            <Tooltip text="Search word" />
+         </tooltip>
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/icons8_search_24px.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button layoutX="7.0" layoutY="202.0" mnemonicParsing="false" onAction="#setTranslateButton" prefHeight="45.0" prefWidth="45.0" styleClass="menu-item" stylesheets="@../style.css" textFill="WHITE">
+         <tooltip>
+            <Tooltip text="Translate" />
+         </tooltip>
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/keyboard.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button layoutX="7.0" layoutY="282.0" mnemonicParsing="false" onAction="#setAddWordButton" prefHeight="45.0" prefWidth="45.0" styleClass="menu-item" stylesheets="@../style.css" textFill="WHITE">
+         <tooltip>
+            <Tooltip text="Add Word" />
+         </tooltip>
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/icons8_add_32px.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="exitButton" layoutX="7.0" layoutY="491.0" mnemonicParsing="false" onAction="#setExitButton" prefHeight="45.0" prefWidth="45.0" styleClass="exit-button" stylesheets="@../style.css">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/icons8_exit_32px.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <tooltip>
+            <Tooltip text="Exit" />
+         </tooltip>
+      </Button>
+      <Button layoutX="7.0" layoutY="362.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" stylesheets="@../style.css" textFill="WHITE">
+         <tooltip>
+            <Tooltip text="Game" />
+         </tooltip>
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/game-console.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <styleClass>
+            <String fx:value="menu-item" />
+            <String fx:value="selected-border" />
+         </styleClass>
+      </Button>
    </children>
 </AnchorPane>

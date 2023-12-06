@@ -27,8 +27,6 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Optional;
 
-import javafx.scene.Node;
-
 import static com.example.dictionary.Application.dictionary;
 
 
@@ -41,8 +39,6 @@ public class SearchController extends SwitchPage {
     private WebView webView;
     @FXML
     private ListView<String> listView;
-
-    // the last selected index of the list view
     private int lastSelectedIndex = 0;
     private Image historyIcon;
     @FXML
@@ -73,7 +69,6 @@ public class SearchController extends SwitchPage {
         Platform.runLater(() -> searchField.requestFocus());
         takeHistoryIcon();
         takeSearchList();
-
     }
 
     /**
@@ -318,6 +313,26 @@ public class SearchController extends SwitchPage {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    public void setSynonymButton(ActionEvent event){
+        try {
+            SynonymAntonym.setWord(latestWord);
+            Stage popup = new Stage();
+            Parent root = FXMLLoader.load(Objects.requireNonNull(
+                    Application.class.getResource("fxml/SynonymAntonym.fxml")));
+            Scene scene = new Scene(root, 464, 373);
+            popup.getIcons().add(new Image(Objects.requireNonNull(Application.class.getResourceAsStream("icons/app.png"))));
+            popup.setTitle("Synonym");
+            popup.setScene(scene);
+            popup.show();
+            popup.setResizable(false);
+            latestWord = "";
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
 }

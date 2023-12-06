@@ -14,7 +14,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Region;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -134,7 +135,7 @@ public class MultipleChoiceController implements Initializable {
     /**
      * This method generates a question and displays it on the screen.
      * It also generates the choices for the question and displays them on the screen.
-     * It uses the 'getRandomIndex' method to generate a random index within the range [0, dict.size()).
+     * It uses the 'getRandomIndex' method to generate a random index within the range [0, dict.size()].
      * It uses the 'previousAnswers' set to make sure that the same word is not displayed twice in a row.
      */
     private void generateQuestion() {
@@ -215,10 +216,19 @@ public class MultipleChoiceController implements Initializable {
         if (selectedAnswer.equals(answer)) {
             score++; // Correct answer, increment score
             scoreLabel.setText("Score: " + score);
-            btn.setStyle("-fx-background-color: #1e90ff");
+            btn.setStyle("-fx-background-color: #1eff29");
+            Media sound = new Media(Objects.requireNonNull(
+                    Application.class.getResource("sound/correct answer.mp3")).toString());
+            MediaPlayer mediaPlayer = new MediaPlayer(sound);
+            mediaPlayer.play();
         } else {
             btn.setStyle("-fx-background-color: #ff0000");
-            b.get(i).setStyle("-fx-background-color: #1e90ff");
+            b.get(i).setStyle("-fx-background-color: #1eff29");
+            Media sound = new Media(Objects.requireNonNull(
+                    Application.class.getResource("sound/wrong answer.mp3")).toString());
+            MediaPlayer mediaPlayer = new MediaPlayer(sound);
+            mediaPlayer.setVolume(0.15);
+            mediaPlayer.play();
         }
         setNextBtnText();
     }

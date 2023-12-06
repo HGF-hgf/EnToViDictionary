@@ -7,6 +7,10 @@ module com.example.dictionary {
     requires org.xerial.sqlitejdbc;
     requires jlayer;
     requires org.jsoup;
+    requires javafx.media;
+    requires org.apache.httpcomponents.httpclient;
+    requires org.apache.httpcomponents.httpcore;
+    requires com.google.gson;
     opens com.example.dictionary to javafx.fxml;
     exports com.example.dictionary;
     exports com.example.dictionary.core;

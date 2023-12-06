@@ -15,6 +15,8 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.ArcType;
 import javafx.scene.text.Font;
@@ -30,7 +32,6 @@ import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class HangManGUIController implements Initializable {
-
     private static final Font fontLarge = Font.font("Droid Sans", FontWeight.BOLD, 35);
     private static final Font fontWord = Font.font("Courier New", FontWeight.BOLD, 20);
     @FXML
@@ -205,7 +206,12 @@ public class HangManGUIController implements Initializable {
         gc.setFill(Color.GREEN);
         gc.setTextAlign(TextAlignment.CENTER);
         gc.setTextBaseline(VPos.CENTER);
-        gc.fillText("You Won!", Math.round(canvas.getWidth() / 2), Math.round(canvas.getHeight()) / 2);
+        gc.fillText("You Won!", Math.round(canvas.getWidth() / 2),
+                Math.round(canvas.getHeight()) / 2);
+        Media sound = new Media(Objects.requireNonNull(
+                Application.class.getResource("sound/win.mp3")).toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.play();
     }
 
     private void drawGameOver() {
@@ -213,7 +219,12 @@ public class HangManGUIController implements Initializable {
         gc.setFill(Color.RED);
         gc.setTextAlign(TextAlignment.CENTER);
         gc.setTextBaseline(VPos.CENTER);
-        gc.fillText("Game Over!", Math.round(canvas.getWidth() / 2), Math.round(canvas.getHeight()) / 2);
+        gc.fillText("Game Over!", Math.round(canvas.getWidth() / 2),
+                Math.round(canvas.getHeight()) / 2);
+        Media sound = new Media(Objects.requireNonNull(
+                Application.class.getResource("sound/lost.mp3")).toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.play();
     }
 
     private void drawHangman(int wrongGuesses) {

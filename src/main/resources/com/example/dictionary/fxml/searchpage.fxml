@@ -93,7 +93,14 @@
                            </ImageView>
                         </graphic>
                      </Label>
-                     <Button fx:id="deleteWordButton" layoutX="81.0" layoutY="360.0" mnemonicParsing="false" onAction="#setDeleteWordButton" prefHeight="32.0" prefWidth="60.0" styleClass="delete-button" stylesheets="@../style.css" text="Delete Word" textFill="WHITE" />
+                     <Button fx:id="deleteWordButton" layoutX="81.0" layoutY="360.0" mnemonicParsing="false" onAction="#setDeleteWordButton" prefHeight="32.0" prefWidth="60.0" styleClass="delete-button" stylesheets="@../style.css" textFill="WHITE">
+                        <graphic>
+                           <ImageView fitHeight="20.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                 <Image url="@../icons/delete.png" />
+                              </image>
+                           </ImageView>
+                        </graphic></Button>
                      <Button fx:id="editWordButton" layoutX="12.0" layoutY="360.0" mnemonicParsing="false" onAction="#setEditWordButton" prefHeight="32.0" prefWidth="60.0" styleClass="edit-button" stylesheets="@../style.css" textFill="WHITE">
                         <graphic>
                            <ImageView fitHeight="20.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
@@ -103,16 +110,20 @@
                            </ImageView>
                         </graphic>
                      </Button>
-                     <ImageView fitHeight="20.0" fitWidth="23.0" layoutX="101.0" layoutY="366.0" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                           <Image url="@../icons/delete.png" />
-                        </image>
-                     </ImageView>
                      <Button fx:id="textToSpeechButton" layoutX="156.0" layoutY="359.0" mnemonicParsing="false" onAction="#setTextToSpeechButton" prefHeight="33.0" prefWidth="60.0" style="-fx-background-color: #ffff;" styleClass="volume-button" stylesheets="@../style.css">
                         <graphic>
                            <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                               <image>
                                  <Image url="@../icon/voice-icon-light.png" />
+                              </image>
+                           </ImageView>
+                        </graphic>
+                     </Button>
+                     <Button layoutX="230.0" layoutY="359.0" mnemonicParsing="false" onAction="#setSynonymButton" prefHeight="33.0" prefWidth="60.0" styleClass="volume-button" stylesheets="@../style.css">
+                        <graphic>
+                           <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                 <Image url="@../icons/synonym.png" />
                               </image>
                            </ImageView>
                         </graphic>

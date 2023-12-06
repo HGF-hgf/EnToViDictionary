@@ -69,7 +69,7 @@ public class AddWordController extends SwitchPage {
         Optional<ButtonType> option = alertConfirmation.showAndWait();
         // get data from input
         String target = wordTextField.getText();
-        byte[] pText = htmlEditor.getHtmlText().getBytes(StandardCharsets.ISO_8859_1);
+        byte[] pText = htmlEditor.getHtmlText().getBytes(StandardCharsets.UTF_8);
         String meaning = new String(pText, StandardCharsets.UTF_8);
         meaning =
                 meaning.replace(
