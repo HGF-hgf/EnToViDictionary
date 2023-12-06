@@ -64,7 +64,7 @@
          </Button>
          <Pane layoutX="65.0" prefHeight="550.0" prefWidth="792.0" style="-fx-background-color: #ffffff; -fx-border-radius: 10px; -fx-background-radius: 10px;" styleClass="search-box" stylesheets="@../style.css">
             <children>
-                    <TextField fx:id="searchField" layoutX="13.0" layoutY="50.0" onAction="#searchWord" onKeyPressed="#changeFocus" onKeyTyped="#takeSearchList" prefHeight="27.0" prefWidth="264.0" promptText="Search word" styleClass="search-box" stylesheets="@../style.css" />
+                    <TextField fx:id="searchField" layoutX="13.0" layoutY="50.0" onAction="#searchWord" onKeyPressed="#changeFocus" onKeyTyped="#takeSearchList" onMouseClicked="#setClickOnTextField" prefHeight="27.0" prefWidth="264.0" promptText="Search word" styleClass="search-box" stylesheets="@../style.css" />
                <ListView fx:id="listView" layoutX="14.0" layoutY="207.0" onKeyPressed="#selectEnter" onMouseClicked="#selectClick" prefHeight="327.0" prefWidth="264.0" styleClass="list-cell" stylesheets="@../style.css" />
                <Pane layoutX="12.0" layoutY="123.0" prefHeight="72.0" prefWidth="264.0" styleClass="title" stylesheets="@../style.css">
                   <children>

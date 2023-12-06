@@ -71,8 +71,9 @@ public class SearchController extends SwitchPage {
     public void initialize() {
         // set the focus to the search field
         Platform.runLater(() -> searchField.requestFocus());
-
+        takeHistoryIcon();
         takeSearchList();
+
     }
 
     /**
@@ -94,8 +95,9 @@ public class SearchController extends SwitchPage {
         }
     }
 
-    private void takeHistoryIcon() {
+    public void takeHistoryIcon() {
         historyIcon = new Image(Objects.requireNonNull(Application.class.getResourceAsStream("icon/history-icon-light.png")));
+
     }
 
     /**
@@ -105,10 +107,40 @@ public class SearchController extends SwitchPage {
      */
     public void takeSearchList() {
         listView.getItems().clear();
-        takeHistoryIcon();
+        listView.setVisible(true);
         String word = searchField.getText();
         ArrayList<String> searchedWords = Trie.search(word);
         ArrayList<String> history = History.getHistory();
+
+        listView.setCellFactory(
+                new Callback<>() {
+                    @Override
+                    public ListCell<String> call(ListView<String> param) {
+                        return new ListCell<>() {
+                            @Override
+                            public void updateItem(String item, boolean empty) {
+                                super.updateItem(item, empty);
+                                if (empty || item == null) {
+                                    setGraphic(null);
+                                    setText(null);
+                                } else if (item.charAt(0) != '*') {
+                                    setGraphic(null);
+                                    setText(item);
+                                    setFont(Font.font("Arial", 15));
+                                } else if (item.charAt(0) == '*') {
+                                    ImageView imageView = new ImageView(historyIcon);
+                                    imageView.setFitHeight(15);
+                                    imageView.setFitWidth(15);
+                                    setGraphic(imageView);
+                                    setText(" " + item.substring(1));
+                                    setFont(Font.font("Arial", 15));
+                                }
+                            }
+                        };
+                    }
+                }
+        );
+
         for (int i = history.size() - 1; i >= 0; --i) {
             if (word.isEmpty() || history.get(i).startsWith(word)) {
                 listView.getItems().add("*" + history.get(i));
@@ -125,34 +157,7 @@ public class SearchController extends SwitchPage {
             webView.getEngine().loadContent("");
             return;
         }
-        listView.setCellFactory(
-                new Callback<>() {
-                    @Override
-                    public ListCell<String> call(ListView<String> param) {
-                        return new ListCell<>() {
-                            @Override
-                            public void updateItem(String item, boolean empty) {
-                                super.updateItem(item, empty);
-                                if (item == null || empty) {
-                                    setGraphic(null);
-                                    setText(null);
-                                } else if (item.charAt(0) != '*') {
-                                    setGraphic(null);
-                                    setText(item);
-                                    setFont(Font.font("Arial", 15));
-                                } else {
-                                    ImageView imageView = new ImageView(historyIcon);
-                                    imageView.setFitHeight(15);
-                                    imageView.setFitWidth(15);
-                                    setGraphic(imageView);
-                                    setText(" " + item.substring(1));
-                                    setFont(Font.font("Arial", 15));
-                                }
-                            }
-                        };
-                    }
-                }
-        );
+
     }
 
     /**
@@ -168,6 +173,8 @@ public class SearchController extends SwitchPage {
         }
         if (!word.isEmpty()) {
             History.addHistory(word);
+            History.addToFile();
+            takeHistoryIcon();
         }
 
         String meaning = dictionary.search(word);
@@ -176,11 +183,6 @@ public class SearchController extends SwitchPage {
 
         latestWord = word;
         webView.getEngine().loadContent(meaning);
-        textToSpeechButton.setVisible(true);
-
-        if (searchField.getText().isEmpty()) {
-            textToSpeechButton.setVisible(false);
-        }
     }
 
     /**
@@ -234,10 +236,16 @@ public class SearchController extends SwitchPage {
                 searchField.setText(word);
             }
             searchWord();
-
         }
     }
 
+    @FXML
+    public void setClickOnTextField(MouseEvent event) {
+        if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 1) {
+            listView.setVisible(true);
+            takeHistoryIcon();
+        }
+    }
     /**
      * This method is called when the user clicks on the 'textToSpeechButton'.
      * It reads the searched word.
