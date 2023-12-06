@@ -35,7 +35,7 @@ and Google Translate API
     - Games for learning English vocabulary
 
 ## Inheritance Diagram
-![Inheritance Diagram]()
+![Inheritance Diagram](https://github.com/HGF-hgf/EnToViDictionary/blob/master/src/main/resources/com/example/dictionary/images/Diagram.png)
 
 ## Preview
 

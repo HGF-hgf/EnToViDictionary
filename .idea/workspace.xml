@@ -4,20 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="411a0a16-a100-46ea-a142-bee7c3cbcca9" name="Changes" comment="updated search word">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/SynonymAntonym.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dictionary-history/history.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dictionary-history/history.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dict_hh.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/dict_hh.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/AddWordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/AddWordController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/GamePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/GamePageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/HangManGUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/HangManGUIController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/MultipleChoiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/MultipleChoiceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/SearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/ui/SearchController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/dictionary/fxml/GamePage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/dictionary/fxml/GamePage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/dictionary/fxml/searchpage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/dictionary/fxml/searchpage.fxml" afterDir="false" />
+    <list default="true" id="411a0a16-a100-46ea-a142-bee7c3cbcca9" name="Changes" comment="finish">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/dictionary/images/Diagram.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -235,7 +224,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701848500917</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="finish">
+      <option name="closed" value="true" />
+      <created>1701874075385</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1701874075385</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -260,6 +257,7 @@
     <MESSAGE value="finish the dictionary" />
     <MESSAGE value="updated ui" />
     <MESSAGE value="updated search word" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated search word" />
+    <MESSAGE value="finish" />
+    <option name="LAST_COMMIT_MESSAGE" value="finish" />
   </component>
 </project>
