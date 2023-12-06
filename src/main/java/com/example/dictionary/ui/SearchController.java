@@ -57,7 +57,8 @@ public class SearchController extends SwitchPage {
     private Button exitButton;
 
 
-    public SearchController() {}
+    public SearchController() {
+    }
 
     /**
      * This method is called to initialize a controller after its root element has been completely processed.
@@ -241,6 +242,7 @@ public class SearchController extends SwitchPage {
             takeHistoryIcon();
         }
     }
+
     /**
      * This method is called when the user clicks on the 'textToSpeechButton'.
      * It reads the searched word.
@@ -315,8 +317,16 @@ public class SearchController extends SwitchPage {
         }
     }
 
+    /**
+     * Handles the action event of the Synonym button.
+     * When the button is clicked, it sets the word for the SynonymAntonym class,
+     * creates a new stage for the SynonymAntonym view, and displays the stage.
+     * If an IOException occurs while loading the FXML file, the stack trace is printed.
+     *
+     * @param event the action event
+     */
     @FXML
-    public void setSynonymButton(ActionEvent event){
+    public void setSynonymButton(ActionEvent event) {
         try {
             SynonymAntonym.setWord(latestWord);
             Stage popup = new Stage();
@@ -332,7 +342,6 @@ public class SearchController extends SwitchPage {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
 }

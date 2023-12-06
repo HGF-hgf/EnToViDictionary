@@ -32,6 +32,12 @@ public class SynonymAntonym {
         setAntonymListView();
     }
 
+    /**
+     * Populates the synonymListView with synonyms of a given word.
+     * The synonyms are fetched from the Datamuse API.
+     * If a synonym contains a space, it is replaced with a hyphen.
+     * In case of an exception, it is caught and the stack trace is printed.
+     */
     public void setSynonymListView() {
        try {
            CloseableHttpClient httpClient = HttpClients.createDefault();
@@ -54,6 +60,13 @@ public class SynonymAntonym {
        }
     }
 
+
+    /**
+     * Populates the antonymListView with antonyms of a given word.
+     * The antonyms are fetched from the Datamuse API.
+     * If an antonym contains a space, it is replaced with a hyphen.
+     * In case of an exception, it is caught and the stack trace is printed.
+     */
     public void setAntonymListView() {
         try {
             CloseableHttpClient httpClient = HttpClients.createDefault();
