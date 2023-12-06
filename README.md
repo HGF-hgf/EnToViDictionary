@@ -2,12 +2,15 @@
 A dictionary for English-Vietnamese translation written in Java
 
 ## Table of Contents
-- [Authors](#authors)
-- [Features](#features)
-- [Preview](#preview)
-- [Installation](#installation)
-- [Requirements](#requirements)
-- [Project Structure](#project-structure)
+- [English-Vietnamese-Dictionary](#english-vietnamese-dictionary)
+  - [Table of Contents](#table-of-contents)
+  - [Authors](#authors)
+  - [Features](#features)
+  - [Inheritance Diagram](#inheritance-diagram)
+  - [Preview](#preview)
+  - [Installation](#installation)
+  - [Requirements](#requirements)
+  - [Project Structure](#project-structure)
 
 ## Authors
 - [Nguyễn Viết Hoàng](https://github.com/HGF-hgf) - 22028122
@@ -30,6 +33,9 @@ and Google Translate API
     - Google Translate TTS (Text to Speech) for English and Vietnamese
     - Connect to Sqlite database for storing data
     - Games for learning English vocabulary
+
+## Inheritance Diagram
+![Inheritance Diagram]()
 
 ## Preview
 
